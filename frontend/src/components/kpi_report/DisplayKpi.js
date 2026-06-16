@@ -18,7 +18,7 @@ export default function DisplayKpi() {
           }
         });
 
-        console.log("✅ API Response:", res.data);
+        
 
         setRecords(res.data || []);
 
@@ -63,7 +63,7 @@ export default function DisplayKpi() {
           <tbody>
             {records.map((e) => {
 
-              console.log("🔍 Row Data:", e); // DEBUG
+              
 
               return (
                 <tr key={e.kpiId}>

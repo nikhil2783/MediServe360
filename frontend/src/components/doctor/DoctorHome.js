@@ -2,11 +2,11 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import TopNavbar from "../common/TopNavbar";
 
 const navLinks = [
-  { to: "add", label: "Add Doctor", icon: "➕" },
+  
   { to: "find", label: "Find Doctor", icon: "🔍" },
   { to: "display", label: "Display", icon: "📋" },
   { to: "displayPaginated", label: "Paginated", icon: "📄" },
-  {to:"notificationd",label:"Notification",icon:"📄"}
+  
 ];
 
 export default function DoctorHome() {

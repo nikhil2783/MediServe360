@@ -5,45 +5,46 @@ import { toast } from "react-toastify";
 const BASE = "http://localhost:9002";
 
 export default function FindDoctor() {
-  const [searchType, setSearchType] = useState("id");
-  const [query,      setQuery]      = useState("");
-  const [results,    setResults]    = useState([]);
-  const [loading,    setLoading]    = useState(false);
 
-  const headers = { Authorization: "Bearer " + localStorage.getItem("token") };
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const headers = {
+    Authorization: "Bearer " + localStorage.getItem("token"),
+  };
 
   async function handleChange(e) {
     const val = e.target.value;
 
-    // Validation
-    if (searchType === "id" && val !== "" && !/^\d+$/.test(val)) return;
-    if (searchType === "name" && val !== "" && !/^[a-zA-Z\s]*$/.test(val)) return;
+    // ✅ Allow only letters and spaces
+    if (val !== "" && !/^[a-zA-Z\s]*$/.test(val)) return;
 
     setQuery(val);
 
-    if (!val.trim()) { setResults([]); return; }
+    if (!val.trim()) {
+      setResults([]);
+      return;
+    }
 
     setLoading(true);
+
     try {
-      if (searchType === "id") {
-        const res = await axios.get(`${BASE}/api/doctor/get/${val.trim()}`, { headers });
-        setResults([res.data]);
-      } else {
-        const res = await axios.get(`${BASE}/api/doctor/search?name=${encodeURIComponent(val.trim())}`, { headers });
-        setResults(res.data || []);
-      }
+      const res = await axios.get(
+        `${BASE}/api/doctor/search?name=${encodeURIComponent(val.trim())}`,
+        { headers }
+      );
+
+      setResults(res.data || []);
     } catch (err) {
-      if (err.response?.status === 404) setResults([]);
-      else toast.error(err.response?.data?.message || err.message);
+      if (err.response?.status === 404) {
+        setResults([]);
+      } else {
+        toast.error(err.response?.data?.message || err.message);
+      }
     } finally {
       setLoading(false);
     }
-  }
-
-  function handleTypeSwitch(type) {
-    setSearchType(type);
-    setQuery("");
-    setResults([]);
   }
 
   return (
@@ -53,32 +54,21 @@ export default function FindDoctor() {
       <div className="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
         <h4 className="mb-0 fw-bold">🩺 Find Doctor</h4>
 
-        <div className="d-flex align-items-center gap-2">
-          {/* Toggle */}
-          <div className="btn-group">
-            <button type="button"
-              className={`btn btn-sm ${searchType === "id" ? "btn-primary" : "btn-outline-secondary"}`}
-              onClick={() => handleTypeSwitch("id")}>By ID</button>
-            <button type="button"
-              className={`btn btn-sm ${searchType === "name" ? "btn-primary" : "btn-outline-secondary"}`}
-              onClick={() => handleTypeSwitch("name")}>By Name</button>
-          </div>
-
-          {/* Input */}
-          <div className="input-group" style={{ width: 240 }}>
-            <span className="input-group-text">
-              {loading
-                ? <span className="spinner-border spinner-border-sm"></span>
-                : <i className="bi bi-search"></i>}
-            </span>
-            <input className="form-control"
-              type="text"
-              inputMode={searchType === "id" ? "numeric" : "text"}
-              placeholder={searchType === "id" ? "Enter doctor ID..." : "Search by name..."}
-              value={query}
-              onChange={handleChange}
-            />
-          </div>
+        <div className="input-group" style={{ width: 280 }}>
+          <span className="input-group-text">
+            {loading ? (
+              <span className="spinner-border spinner-border-sm"></span>
+            ) : (
+              <i className="bi bi-search"></i>
+            )}
+          </span>
+          <input
+            className="form-control"
+            type="text"
+            placeholder="Search doctor by name..."
+            value={query}
+            onChange={handleChange}
+          />
         </div>
       </div>
 
@@ -86,7 +76,7 @@ export default function FindDoctor() {
       {!query && (
         <div className="text-center text-muted py-5">
           <i className="bi bi-search fs-2 d-block mb-2"></i>
-          Search by ID or name to find a doctor
+          Start typing a doctor name to search
         </div>
       )}
 

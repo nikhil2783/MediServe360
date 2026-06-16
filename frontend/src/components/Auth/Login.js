@@ -44,9 +44,11 @@ export default function Login() {
                     setError("Your account is pending admin approval.");
                 } else if (msg.toLowerCase().includes("reject") || msg.toLowerCase().includes("not approved")) {
                     setError("Your account has been rejected by admin.");
-                } else if (msg.toLowerCase().includes("invalid")) {
+                } else if (msg.toLowerCase().includes("password invalid")) {
                     setError("Invalid email or password. Please try again.");
-                } else {
+                }  else if (msg.toLowerCase().includes("invalid email")) {
+                    setError("Invalid email. Please try again.");
+                }else {
                     setError(msg || "Something went wrong. Please try again.");
                 }
                 setLoading(false);

@@ -68,7 +68,7 @@ public class AuthService {
 
         if (user == null) {
             tryLog(() -> auditFeign.log("AUTH.LOGIN_FAILED", 0));
-            throw new BadRequestException("Invalid email or password");
+            throw new BadRequestException("Invalid email");
         }
 
         if ("REJECT".equalsIgnoreCase(user.getStatus())) {
@@ -83,7 +83,7 @@ public class AuthService {
 
         if (!passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
             tryLog(() -> auditFeign.logFailure("AUTH.LOGIN", "Wrong password"));
-            throw new BadRequestException("Invalid email or password");
+            throw new BadRequestException("Password Invalid");
         }
 
         String token = jwtUtil.generateToken(user.getUserEmail(), user.getUserRole());

@@ -21,9 +21,9 @@ export default function UpdateDoctor() {
     })
     .then((res) => {
       const doc = res.data;
-      setDoctorName(doc.name || "");
-      setDoctorDepartment(doc.department || "");
-      setAvailabilitySchedule(doc.availabilitySchedule || "");
+      setDoctorName(doc.doctor.name || "");
+      setDoctorDepartment(doc.doctor.department || "");
+      setAvailabilitySchedule(doc.doctor.availabilitySchedule || "");
       setOriginalDoctor(doc);
     })
     .catch(() => {

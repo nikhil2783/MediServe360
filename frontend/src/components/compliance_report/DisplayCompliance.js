@@ -14,7 +14,7 @@ export default function DisplayCompliance() {
       }
     })
     .then((res) => {
-      console.log("Data:", res.data);
+      
       setReports(res.data);
     })
     .catch((err) => {
