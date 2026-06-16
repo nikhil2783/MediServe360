@@ -29,10 +29,10 @@ export default function DisplayPatients() {
   return (
     <div>
       <div className="d-flex justify-content-between align-items-center mb-3">
-        {/* LEFT SIDE */}
+        {}
         <h2 className="mb-0">All Patients</h2>
 
-        {/* RIGHT SIDE (Search) */}
+        {}
         <div className="d-flex">
           <input
             type="text"

@@ -50,7 +50,7 @@ export default function FindDoctor() {
   return (
     <div className="mt-3">
 
-      {/* Header + Search */}
+      {}
       <div className="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
         <h4 className="mb-0 fw-bold">🩺 Find Doctor</h4>
 
@@ -72,7 +72,7 @@ export default function FindDoctor() {
         </div>
       </div>
 
-      {/* Empty state */}
+      {}
       {!query && (
         <div className="text-center text-muted py-5">
           <i className="bi bi-search fs-2 d-block mb-2"></i>
@@ -80,7 +80,7 @@ export default function FindDoctor() {
         </div>
       )}
 
-      {/* No results */}
+      {}
       {query && results.length === 0 && !loading && (
         <div className="text-center text-muted py-5">
           <i className="bi bi-person-slash fs-2 d-block mb-2"></i>
@@ -88,7 +88,7 @@ export default function FindDoctor() {
         </div>
       )}
 
-      {/* Results Table */}
+      {}
       {results.length > 0 && (
         <div className="table-responsive">
           <table className="table table-bordered table-hover table-striped">

@@ -82,7 +82,7 @@ export default function DisplayInvoicesPaginated() {
                                     <th onClick={() => handleSort("invoiceDate")} style={{ cursor: "pointer" }}>
                                         Invoice Date{sortArrow("invoiceDate")}
                                     </th>
-                                    {/* ✅ Removed: Payment Mode, Adjustment Amount, Refund Status */}
+                                    {}
                                     <th onClick={() => handleSort("paymentStatus")} style={{ cursor: "pointer" }}>
                                         Payment Status{sortArrow("paymentStatus")}
                                     </th>

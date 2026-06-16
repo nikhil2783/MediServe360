@@ -16,12 +16,12 @@ export default function DoctorHome() {
   return (  
     <div className="min-vh-100 bg-light">
 
-      {/* Top Navbar */}
+      {}
       <TopNavbar />
 
       <div className="container-fluid px-4 py-4">
 
-        {/* Header */}
+        {}
         <div className="mb-4">
           <Link to="/doctor" className="text-decoration-none">
             <h4 className="fw-bold text-dark mb-1">
@@ -34,7 +34,7 @@ export default function DoctorHome() {
           </p>
         </div>
 
-        {/* Cards */}
+        {}
         <div className="row g-3 mb-4">
 
           {navLinks.map((link) => (
@@ -63,7 +63,7 @@ export default function DoctorHome() {
 
         </div>
 
-        {/* Content Area */}
+        {}
         {!location.pathname.startsWith("/doctor/") ? (
 
           <div className="card shadow-sm p-4 text-muted text-center">

@@ -45,7 +45,7 @@ export default function AddCareNote() {
     return (
         <div>
 
-            {/* Header */}
+            {}
             <div className="d-flex align-items-start justify-content-between mb-4">
                 <div>
                     <h4 className="fw-bold text-dark mb-1">
@@ -75,7 +75,7 @@ export default function AddCareNote() {
                 </div>
             </div>
 
-            {/* Step 1 - Search Patient */}
+            {}
             <div className="card mb-4">
                 <div className="card-header fw-semibold" style={{ backgroundColor: "#e7f1ff" }}>
                     Step 1 — Search and select a patient
@@ -85,7 +85,7 @@ export default function AddCareNote() {
                 </div>
             </div>
 
-            {/* Selected Patient Badge */}
+            {}
             {selectedPatient && (
                 <div className="alert alert-success d-flex justify-content-between align-items-center mb-4">
                     <span>
@@ -98,7 +98,7 @@ export default function AddCareNote() {
                 </div>
             )}
 
-            {/* Step 2 - Note Form */}
+            {}
             <div className="card mb-4">
                 <div className="card-header fw-semibold" style={{ backgroundColor: "#e7f1ff" }}>
                     Step 2 — Write care note

@@ -32,7 +32,7 @@ export default function DisplayAppointments() {
   return (
     <div>
 
-      {/* Header + Search */}
+      {}
       <div className="d-flex justify-content-between align-items-center mb-3">
 
         <h2 className="mb-0">All Appointments</h2>
@@ -54,7 +54,7 @@ export default function DisplayAppointments() {
 
       </div>
 
-      {/* No data */}
+      {}
       {filteredAppointments.length === 0 ? (
         <p className="text-danger">No appointments found</p>
       ) : (

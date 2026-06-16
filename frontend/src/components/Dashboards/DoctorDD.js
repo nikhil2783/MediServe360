@@ -192,7 +192,7 @@ export default function DoctorDD() {
 
             <div className="py-4 px-3">
 
-                {/* Welcome Banner */}
+                {}
                 <div className="container mb-4">
                     <div className="card border-0 shadow-sm" style={{ borderRadius: "16px" }}>
                         <div className="card-body p-4">
@@ -226,7 +226,7 @@ export default function DoctorDD() {
                     </div>
                 </div>
 
-                {/* Stats Cards */}
+                {}
                 <div className="container mb-4">
                     <div className="row g-3">
                         {[
@@ -248,14 +248,14 @@ export default function DoctorDD() {
                     </div>
                 </div>
 
-                {/* Error */}
+                {}
                 {error && (
                     <div className="container mb-3">
                         <div className="alert alert-danger py-2 small">⚠️ {error}</div>
                     </div>
                 )}
 
-                {/* Appointments Table */}
+                {}
                 <div className="container">
                     <div className="card border-0 shadow-sm" style={{ borderRadius: "16px" }}>
                         <div className="card-body p-4">
@@ -328,7 +328,7 @@ export default function DoctorDD() {
                 </div>
             </div>
 
-            {/* VITALS MODAL */}
+            {}
             {activeModal?.type === "vitals" && (
                 <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1050, display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <div className="card border-0 shadow-lg" style={{ width: "100%", maxWidth: 500, borderRadius: "16px", maxHeight: "80vh", overflowY: "auto" }}>
@@ -381,7 +381,7 @@ export default function DoctorDD() {
                 </div>
             )}
 
-            {/* REVIEW MODAL */}
+            {}
             {activeModal?.type === "review" && (
                 <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1050, display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <div className="card border-0 shadow-lg" style={{ width: "100%", maxWidth: 480, borderRadius: "16px", maxHeight: "90vh", overflowY: "auto" }}>
@@ -394,12 +394,12 @@ export default function DoctorDD() {
                                 </button>
                             </div>
 
-                            {/* ✅ Patient Info with Editable Medical History */}
+                            {}
                             {activeModal.appointment.patient && (
                                 <div className="p-3 rounded mb-3"
                                     style={{ background: "#f7fafc", border: "1px solid #e3f2fb" }}>
 
-                                    {/* Patient basic info */}
+                                    {}
                                     <div className="fw-semibold mb-1" style={{ color: "#1a3c5e" }}>
                                         {activeModal.appointment.patient.patientName}
                                     </div>
@@ -411,7 +411,7 @@ export default function DoctorDD() {
                                         📞 {activeModal.appointment.patient.patientPhoneNumber}
                                     </div>
 
-                                    {/* ✅ Editable Medical History */}
+                                    {}
                                     <div className="mt-3">
                                         <div className="d-flex align-items-center justify-content-between mb-1">
                                             <span className="small fw-semibold" style={{ color: "#1a3c5e" }}>
@@ -477,7 +477,7 @@ export default function DoctorDD() {
                                 </div>
                             )}
 
-                            {/* Appointment info */}
+                            {}
                             <div className="d-flex align-items-center gap-2 mb-3">
                                 <span className="small fw-semibold" style={{ color: "#1a3c5e" }}>Current Status:</span>
                                 {getStatusBadge(activeModal.appointment.status)}
@@ -487,7 +487,7 @@ export default function DoctorDD() {
                                 📅 {activeModal.appointment.date} · ⏰ {activeModal.appointment.time} · ⌛ {activeModal.appointment.durationMinutes} min
                             </div>
 
-                            {/* Status buttons */}
+                            {}
                             <div className="d-flex gap-2">
                                 <button
                                     className="btn w-100 fw-semibold text-white"

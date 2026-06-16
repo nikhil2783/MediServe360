@@ -70,7 +70,7 @@ export default function Doctorreg() {
             >
                 <div className="card-body p-4 p-md-5">
 
-                    {/* Header */}
+                    {}
                     <div className="text-center mb-4">
                         <div
                             className="d-inline-flex align-items-center justify-content-center rounded-circle mb-3"
@@ -87,7 +87,7 @@ export default function Doctorreg() {
                         </p>
                     </div>
 
-                    {/* Divider */}
+                    {}
                     <div className="d-flex align-items-center gap-2 mb-4">
                         <hr className="flex-grow-1 m-0" style={{ borderColor: "#c8dfe9" }} />
                         <span className="small px-2 py-1 rounded-pill fw-semibold"
@@ -97,7 +97,7 @@ export default function Doctorreg() {
                         <hr className="flex-grow-1 m-0" style={{ borderColor: "#c8dfe9" }} />
                     </div>
 
-                    {/* Alerts */}
+                    {}
                     {error && (
                         <div className="alert alert-danger py-2 small" role="alert">
                             ⚠️ {error}
@@ -111,7 +111,7 @@ export default function Doctorreg() {
 
                     <form onSubmit={(e) => { e.preventDefault(); buttonHandler(); }}>
 
-                        {/* Doctor Name */}
+                        {}
                         <div className="mb-3">
                             <label className="form-label small fw-semibold" style={{ color: "#1a3c5e" }}>
                                 Doctor Name <span style={{ color: "red" }}>*</span>
@@ -129,7 +129,7 @@ export default function Doctorreg() {
                             />
                         </div>
 
-                        {/* Department */}
+                        {}
                         <div className="mb-3">
                             <label className="form-label small fw-semibold" style={{ color: "#1a3c5e" }}>
                                 Department <span style={{ color: "red" }}>*</span>
@@ -160,7 +160,7 @@ export default function Doctorreg() {
                             </select>
                         </div>
 
-                        {/* Email */}
+                        {}
                         <div className="mb-3">
                             <label className="form-label small fw-semibold" style={{ color: "#1a3c5e" }}>
                                 Email Address <span style={{ color: "red" }}>*</span>
@@ -176,7 +176,7 @@ export default function Doctorreg() {
                             />
                         </div>
 
-                        {/* Availability */}
+                        {}
                         <div className="mb-4">
                             <label className="form-label small fw-semibold" style={{ color: "#1a3c5e" }}>
                                 Availability (HH:mm-HH:mm) <span style={{ color: "red" }}>*</span>
@@ -194,7 +194,7 @@ export default function Doctorreg() {
                             />
                         </div>
 
-                        {/* Submit Button */}
+                        {}
                         <button
                             type="submit"
                             className="btn w-100 fw-semibold text-white"

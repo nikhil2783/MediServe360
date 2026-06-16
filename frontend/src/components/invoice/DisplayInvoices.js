@@ -32,7 +32,7 @@ export default function DisplayInvoices() {
                                 <th>Amount</th>
                                 <th>Invoice Date</th>
                                 <th>Payment Status</th>
-                                {/* ✅ Removed: Payment Mode, Adjustment Amount, Refund Status */}
+                                {}
                                 <th>Update</th>
                                 <th>Delete</th>
                             </tr>

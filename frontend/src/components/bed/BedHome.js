@@ -33,7 +33,7 @@ export default function BedHome() {
 
             <div className="container-fluid px-4 py-4">
 
-                {/* Header */}
+                {}
                 <div className="d-flex align-items-start justify-content-between mb-4">
                     <div>
                         <Link to="/bed" className="text-decoration-none">
@@ -42,7 +42,7 @@ export default function BedHome() {
                         <p className="text-muted small mb-0">Manage beds · Assign patients · Discharge</p>
                     </div>
 
-                    {/* Nurse Dashboard Button */}
+                    {}
                     <Link
                         to="/nursedd/dashboard"
                         className="btn btn-primary d-flex align-items-center gap-2 px-3 py-2 shadow-sm"
@@ -54,7 +54,7 @@ export default function BedHome() {
                     </Link>
                 </div>
 
-                {/* Cards Navigation — 3 per row so all 6 align perfectly */}
+                {}
                 <div className="row g-3 mb-4">
                     {navLinks.map((link) => (
                         <div className="col-6 col-md-4" key={link.to}>
@@ -73,7 +73,7 @@ export default function BedHome() {
                     ))}
                 </div>
 
-                {/* Content Area */}
+                {}
                 {!location.pathname.startsWith("/bed/") ? (
                     <div className="card shadow-sm p-4 text-center" style={{ border: "1.5px solid #dee2e6", borderRadius: "12px" }}>
                         <h6 className="mb-1 fw-semibold text-dark">Welcome to Bed Management</h6>

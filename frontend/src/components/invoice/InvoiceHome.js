@@ -15,12 +15,12 @@ export default function InvoiceHome() {
   return (
     <div className="min-vh-100 bg-light">
 
-      {/* Global Navbar */}
+      {}
       <TopNavbar />
 
       <div className="container-fluid px-4 py-4">
 
-        {/* ✅ Header (Clickable) */}
+        {}
         <div className="mb-4">
           <Link to="/invoice" className="text-decoration-none">
             <h4 className="fw-bold text-dark mb-1">
@@ -33,7 +33,7 @@ export default function InvoiceHome() {
           </p>
         </div>
 
-        {/* ✅ Cards */}
+        {}
         <div className="row g-3 mb-4">
 
           {navLinks.map((link) => (
@@ -61,7 +61,7 @@ export default function InvoiceHome() {
 
         </div>
 
-        {/* ✅ Content Area (FIXED like insurance) */}
+        {}
         {!location.pathname.startsWith("/invoice/") ? (
 
           <div className="card shadow-sm p-4 text-muted text-center">

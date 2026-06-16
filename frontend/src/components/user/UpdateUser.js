@@ -73,7 +73,7 @@ export default function UpdateUser() {
         <div className="min-vh-100" style={{ backgroundColor: "#f0f2f5" }}>
             <TopNavbar />
 
-            {/* Cover banner */}
+            {}
             <div
                 style={{
                     height: "180px",
@@ -83,7 +83,7 @@ export default function UpdateUser() {
 
             <div className="container" style={{ maxWidth: 720, marginTop: "-70px" }}>
 
-                {/* Avatar + name row */}
+                {}
                 <div className="d-flex align-items-end gap-4 mb-3">
                     <div
                         className="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow"
@@ -111,7 +111,7 @@ export default function UpdateUser() {
                     </div>
                 </div>
 
-                {/* Form card */}
+                {}
                 <div className="card border-0 shadow-sm mb-3" style={{ borderRadius: "14px" }}>
                     <div className="card-body p-4">
 
@@ -121,7 +121,7 @@ export default function UpdateUser() {
 
                         <form onSubmit={submitHandler}>
 
-                            {/* User ID — readonly */}
+                            {}
                             <div className="mb-3">
                                 <label className="form-label small fw-semibold" style={{ color: "#64748b" }}>
                                     <i className="bi bi-hash me-1"></i>User ID
@@ -135,7 +135,7 @@ export default function UpdateUser() {
                                 />
                             </div>
 
-                            {/* Name */}
+                            {}
                             <div className="mb-3">
                                 <label className="form-label small fw-semibold" style={{ color: "#334155" }}>
                                     <i className="bi bi-person me-1"></i>Full Name
@@ -150,7 +150,7 @@ export default function UpdateUser() {
                                 />
                             </div>
 
-                            {/* Role — readonly */}
+                            {}
                             <div className="mb-3">
                                 <label className="form-label small fw-semibold" style={{ color: "#334155" }}>
                                     <i className="bi bi-shield me-1"></i>Role
@@ -164,7 +164,7 @@ export default function UpdateUser() {
                                 />
                             </div>
 
-                            {/* Phone */}
+                            {}
                             <div className="mb-3">
                                 <label className="form-label small fw-semibold" style={{ color: "#334155" }}>
                                     <i className="bi bi-telephone me-1"></i>Phone Number
@@ -179,7 +179,7 @@ export default function UpdateUser() {
                                 />
                             </div>
 
-                            {/* Password */}
+                            {}
                             <div className="mb-4">
                                 <label className="form-label small fw-semibold" style={{ color: "#334155" }}>
                                     <i className="bi bi-lock me-1"></i>New Password
@@ -197,7 +197,7 @@ export default function UpdateUser() {
                                 </div>
                             </div>
 
-                            {/* Buttons */}
+                            {}
                             <div className="d-flex gap-2">
                                 <button
                                     type="submit"

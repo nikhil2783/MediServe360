@@ -99,7 +99,7 @@ export default function FinanceDD() {
 
             <div className="container-fluid px-4 py-4">
 
-                {/* Header */}
+                {}
                 <div className="mb-4">
                     <h4 className="fw-bold text-dark mb-1">Finance Dashboard</h4>
                     <p className="text-muted small mb-0">
@@ -107,7 +107,7 @@ export default function FinanceDD() {
                     </p>
                 </div>
 
-                {/* Stats */}
+                {}
                 {loading ? (
                     <div className="text-center py-4">
                         <div className="spinner-border text-primary me-2"></div>
@@ -140,7 +140,7 @@ export default function FinanceDD() {
                     </div>
                 )}
 
-                {/* Claim Status Summary */}
+                {}
                 <div className="row g-3 mb-4">
                     {[
                         { label: "Approved Claims", value: approvedClaims, color: "success", icon: "✅" },
@@ -157,10 +157,10 @@ export default function FinanceDD() {
                     ))}
                 </div>
 
-                {/* Modules + Recent Claims */}
+                {}
                 <div className="row g-3">
 
-                    {/* Modules */}
+                    {}
                     <div className="col-12 col-lg-8">
                         <div className="card border-0 shadow-sm h-100">
                             <div className="card-header bg-white border-bottom py-3">
@@ -185,7 +185,7 @@ export default function FinanceDD() {
                         </div>
                     </div>
 
-                    {/* Recent Claims */}
+                    {}
                     <div className="col-12 col-lg-4">
                         <div className="card border-0 shadow-sm h-100">
                             <div className="card-header bg-white border-bottom py-3">
@@ -218,7 +218,7 @@ export default function FinanceDD() {
 
                 </div>
 
-                {/* Recent Invoices */}
+                {}
                 {recentInvoices.length > 0 && (
                     <div className="card border-0 shadow-sm mt-4">
                         <div className="card-header bg-white border-bottom py-3">
@@ -242,7 +242,7 @@ export default function FinanceDD() {
                                                 <td>{inv.patient?.patientName || `Patient #${inv.patient?.patientId}`}</td>
                                                 <td>₹{inv.amount?.toLocaleString()}</td>
                                                 <td>
-                                                    {/* ✅ Fixed: use paymentStatus not status */}
+                                                    {}
                                                     <span className={`badge ${
                                                         (inv.paymentStatus || "").toUpperCase() === "PAID"
                                                             ? "bg-success"

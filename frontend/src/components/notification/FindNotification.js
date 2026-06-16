@@ -69,12 +69,12 @@ export default function FindNotification() {
                 </button>
             </form>
 
-            {/* No records */}
+            {}
             {searched && !data.notificationId && (
                 <p className="mt-3 text-danger">No records found</p>
             )}
 
-            {/* Display notification */}
+            {}
             {data.notificationId && (
                 <div className="table-responsive">
                     <table className="table table-bordered table-striped mt-4">

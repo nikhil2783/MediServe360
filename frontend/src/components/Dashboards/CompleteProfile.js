@@ -95,9 +95,9 @@ export default function CompleteProfile() {
         className="card border-0 shadow-lg w-100"
         style={{ maxWidth: 520, borderRadius: 20 }}
       >
-        {/* Header */}
+        {}
         <div className="card-body p-5">
-          {/* Brand */}
+          {}
           <div className="d-flex align-items-center gap-2 mb-4">
             <div
               className="d-flex align-items-center justify-content-center rounded-3"
@@ -122,14 +122,14 @@ export default function CompleteProfile() {
             </div>
           </div>
 
-          {/* Title */}
+          {}
           <h5 className="fw-bold mb-1">Complete Your Profile</h5>
           <p className="text-muted mb-4" style={{ fontSize: 14 }}>
             Welcome! Please fill in your department and availability to get
             started.
           </p>
 
-          {/* Progress indicator */}
+          {}
           <div className="d-flex align-items-center gap-2 mb-4">
             <div
               className="d-flex align-items-center justify-content-center rounded-circle bg-success text-white"
@@ -174,7 +174,7 @@ export default function CompleteProfile() {
             </div>
           )}
 
-          {/* Department */}
+          {}
           <div className="mb-4">
             <label className="form-label fw-semibold" style={{ fontSize: 13 }}>
               <i className="bi bi-building me-2 text-primary"></i>
@@ -196,7 +196,7 @@ export default function CompleteProfile() {
             </select>
           </div>
 
-          {/* Availability */}
+          {}
           <div className="mb-4">
             <label className="form-label fw-semibold" style={{ fontSize: 13 }}>
               <i className="bi bi-clock me-2 text-primary"></i>
@@ -246,7 +246,7 @@ export default function CompleteProfile() {
               )}
           </div>
 
-          {/* Submit */}
+          {}
           <button
             onClick={handleSubmit}
             disabled={saving}

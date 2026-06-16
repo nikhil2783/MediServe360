@@ -110,7 +110,7 @@ export default function ReceptionistDD() {
 
             <div className="container-fluid px-4 py-4">
 
-                {/* Welcome Header */}
+                {}
                 <div className="rounded-3 p-4 mb-4 text-white position-relative"
                     style={{
                         background: "linear-gradient(135deg, rgba(13,110,253,0.85), rgba(10,88,202,0.85))",
@@ -125,7 +125,7 @@ export default function ReceptionistDD() {
                     </p>
                 </div>
 
-                {/* Stats Cards */}
+                {}
                 {loading ? (
                     <div className="text-center py-4">
                         <div className="spinner-border text-primary me-2"></div>
@@ -156,10 +156,10 @@ export default function ReceptionistDD() {
                     </div>
                 )}
 
-                {/* MODULES + RECENT APPOINTMENTS */}
+                {}
                 <div className="row g-3">
 
-                    {/* Modules */}
+                    {}
                     <div className="col-12 col-lg-8">
                         <div className="card border-0 shadow-sm h-100">
                             <div className="card-header bg-white border-bottom py-3">
@@ -184,7 +184,7 @@ export default function ReceptionistDD() {
                         </div>
                     </div>
 
-                    {/* ✅ Recent Appointments — real data */}
+                    {}
                     <div className="col-12 col-lg-4">
                         <div className="card border-0 shadow-sm h-100">
                             <div className="card-header bg-white border-bottom py-3">
@@ -231,7 +231,7 @@ export default function ReceptionistDD() {
                     </div>
                 </div>
 
-                {/* Quick Actions */}
+                {}
                 <div className="card border-0 shadow-sm mt-4">
                     <div className="card-header bg-white border-bottom">
                         <h6 className="fw-bold mb-0">⚡ Quick Actions</h6>

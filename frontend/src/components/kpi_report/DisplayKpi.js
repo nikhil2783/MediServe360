@@ -37,17 +37,17 @@ export default function DisplayKpi() {
     <div className="container mt-4">
       <h2>KPI Reports</h2>
 
-      {/* ✅ Loading */}
+      {}
       {loading && <p>Loading...</p>}
 
-      {/* ✅ No Data */}
+      {}
       {!loading && records.length === 0 && (
         <div className="alert alert-warning mt-3">
           No Data Found
         </div>
       )}
 
-      {/* ✅ Table */}
+      {}
       {!loading && records.length > 0 && (
         <table className="table table-bordered table-striped mt-3">
           <thead className="table-dark">
@@ -77,7 +77,7 @@ export default function DisplayKpi() {
                       : "N/A"}
                   </td>
 
-                  {/* ✅ FINAL FIX (handles ALL cases) */}
+                  {}
                   <td>
                     {
                       e.complianceReport?.reportId ??

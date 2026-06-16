@@ -48,7 +48,7 @@ export default function NotificationHome() {
   return (
     <div className="min-vh-100 bg-light">
 
-      {/* Navbar */}
+      {}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
         <div className="container-fluid">
           <Link className="navbar-brand fw-bold" to="/notification">
@@ -92,7 +92,7 @@ export default function NotificationHome() {
       {isHome && (
         <div className="container-fluid px-4 py-4">
 
-          {/* Hero Banner */}
+          {}
           <div
             className="rounded-3 p-4 mb-4 text-white d-flex align-items-center gap-4"
             style={{ background: "linear-gradient(135deg, #1a6e4f 0%, #0d4f3c 100%)" }}
@@ -116,10 +116,10 @@ export default function NotificationHome() {
             </div>
           </div>
 
-          {/* Quick Actions + Notification Info */}
+          {}
           <div className="row g-3">
 
-            {/* Quick Actions */}
+            {}
             <div className="col-12 col-lg-4">
               <div className="card border-0 shadow-sm h-100">
                 <div className="card-header bg-white border-bottom py-3">
@@ -144,7 +144,7 @@ export default function NotificationHome() {
               </div>
             </div>
 
-            {/* Notification Types */}
+            {}
             <div className="col-12 col-lg-8">
               <div className="card border-0 shadow-sm h-100">
                 <div className="card-header bg-white border-bottom py-3">

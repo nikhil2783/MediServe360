@@ -231,7 +231,7 @@ function ProtectedRoute({ children, allowedRoles }) {
        
         <Route path="/profile" element={<ProtectedRoute allowedRoles={ALL_ROLES}><MyProfile /></ProtectedRoute>} />
  
-        {/* User */}
+        {}
         <Route path="/user" element={<ProtectedRoute allowedRoles={ADMIN_ONLY}><UserHome /></ProtectedRoute>}>
           <Route path="add" element={<AddUser />} />
           <Route path="delete/:id" element={<DeleteUser />} />
@@ -242,7 +242,7 @@ function ProtectedRoute({ children, allowedRoles }) {
           <Route path="approval" element={<UserApproval />} />
         </Route>
        
-        {/* Auditlog */}
+        {}
         <Route path="/auditlog" element={<ProtectedRoute allowedRoles={ADMIN_ONLY}><AuditlogHome /></ProtectedRoute>}>
           <Route path="add" element={<AddAuditlog />} />
           <Route path="find" element={<FindAuditlog />} />
@@ -250,7 +250,7 @@ function ProtectedRoute({ children, allowedRoles }) {
           <Route path="paginated" element={<AuditLogPage />} />
         </Route>
  
-        {/* Notification */}
+        {}
         <Route path="/notification" element={<ProtectedRoute allowedRoles={ALL_ROLES}><NotificationHome /></ProtectedRoute>}>
           <Route path="add" element={<AddNotification />} />
           <Route path="update/:id" element={<UpdateNotification />} />
@@ -260,7 +260,7 @@ function ProtectedRoute({ children, allowedRoles }) {
           <Route path="paginated" element={<NotificationPage />} />
         </Route>
        
-        {/* Appointment */}
+        {}
         <Route path="/appointment" element={<ProtectedRoute allowedRoles={ADMIN_DR}><AppointmentHome /></ProtectedRoute>}>
             <Route path="add" element={<AddAppointment/>}></Route>
             <Route path="delete/:aid" element={<DeleteAppointment/>}></Route>
@@ -270,7 +270,7 @@ function ProtectedRoute({ children, allowedRoles }) {
             <Route path="displayPaginated" element={<DisplayAppointmentsPaginated />} />
         </Route>
  
-        {/* Doctor */}
+        {}
         <Route path="/doctor" element={<ProtectedRoute allowedRoles={ADMIN_DR}><DoctorHome /></ProtectedRoute>}>
           <Route path="delete/:id" element={<DeleteDoctor />} />
           <Route path="update/:id" element={<UpdateDoctor />} />
@@ -280,7 +280,7 @@ function ProtectedRoute({ children, allowedRoles }) {
           <Route path="displayPaginated" element={<DisplayDoctorsPaginated />} />
         </Route>
  
-        {/* Patient */}
+        {}
         <Route path="/patient" element={<ProtectedRoute allowedRoles={ADMIN_RECEPTIONIST}><PatientHome /></ProtectedRoute>}>
           <Route path="add" element={<AddPatient />} />
           <Route path="update/:pid" element={<UpdatePatient />} />
@@ -291,7 +291,7 @@ function ProtectedRoute({ children, allowedRoles }) {
           <Route path="patientnotificaion" element={<PatientNotification />} />
         </Route>
  
-        {/* Invoice */}
+        {}
         <Route path="/invoice" element={<ProtectedRoute allowedRoles={ADMIN_FINANCE}><InvoiceHome /></ProtectedRoute>}>
           <Route path="add" element={<AddInvoice />} />
           <Route path="update/:iid" element={<UpdateInvoice />} />
@@ -301,7 +301,7 @@ function ProtectedRoute({ children, allowedRoles }) {
           <Route path="displayPaginated" element={<DisplayInvoicesPaginated />} />
         </Route>
  
-        {/* Insurance */}
+        {}
         <Route path="/insuranceClaim" element={<ProtectedRoute allowedRoles={FINANCE}><InsuranceClaimHome /></ProtectedRoute>}>
           <Route path="add" element={<AddInsuranceClaim />} />
           <Route path="update/:claimId" element={<UpdateInsuranceClaim />} />
@@ -311,7 +311,7 @@ function ProtectedRoute({ children, allowedRoles }) {
           <Route path="displayPaginated" element={<DisplayInsuranceClaimsPaginated />} />
         </Route>
  
-        {/* Compliance */}
+        {}
         <Route path="/compliance_report" element={<ProtectedRoute allowedRoles={ADMIN_COMPLIANCE}><ComplianceReportHome /></ProtectedRoute>}>
           <Route path="add" element={<AddCompliance />} />
           <Route path="update/:id" element={<UpdateCompliance />} />
@@ -345,7 +345,7 @@ function ProtectedRoute({ children, allowedRoles }) {
           <Route path="paginated" element={<NotificationPage />} />
         </Route>
  
-        {/* Bed */}
+        {}
         <Route path="/bed" element={<ProtectedRoute allowedRoles={ADMIN_NURSE}><BedHome /></ProtectedRoute>}>
           <Route path="add" element={<AddBed />} />
           <Route path="update/:bedId" element={<UpdateBed />} />
@@ -357,7 +357,7 @@ function ProtectedRoute({ children, allowedRoles }) {
           <Route path="pages" element={<PaginatedBed />} />
         </Route>
  
-        {/* Ward */}
+        {}
         <Route path="/ward" element={<ProtectedRoute allowedRoles={ADMIN_NURSE}><WardHome /></ProtectedRoute>}>
           <Route path="add" element={<AddWard />} />
           <Route path="update/:wardId" element={<UpdateWard />} />
@@ -375,7 +375,7 @@ function ProtectedRoute({ children, allowedRoles }) {
           <Route path="displayPaginated" element={<DisplayKpiPaginated />} />
           </Route>
  
-        {/* Nurse */}
+        {}
         <Route path="/nursedd" element={<ProtectedRoute allowedRoles={NURSE_ONLY}><NurseHome /></ProtectedRoute>}>
           <Route index element={<NurseDashboard />} />
           <Route path="dashboard" element={<NurseDashboard />} />

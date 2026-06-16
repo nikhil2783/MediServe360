@@ -104,7 +104,7 @@ export default function EditDoctor() {
           style={{ width: "100%", maxWidth: 480, borderRadius: "16px" }}
         >
           <div className="card-body p-4 p-md-5">
-            {/* Header */}
+            {}
             <div className="text-center mb-4">
               <div
                 className="d-inline-flex align-items-center justify-content-center rounded-circle mb-3"
@@ -137,7 +137,7 @@ export default function EditDoctor() {
               </p>
             </div>
 
-            {/* Divider */}
+            {}
             <div className="d-flex align-items-center gap-2 mb-4">
               <hr
                 className="flex-grow-1 m-0"
@@ -160,7 +160,7 @@ export default function EditDoctor() {
               />
             </div>
 
-            {/* Alerts */}
+            {}
             {error && (
               <div className="alert alert-danger py-2 small" role="alert">
                 ⚠️ {error}
@@ -173,7 +173,7 @@ export default function EditDoctor() {
             )}
 
             <form onSubmit={handleSubmit}>
-              {/* Name */}
+              {}
               <div className="mb-3">
                 <label
                   className="form-label small fw-semibold"
@@ -193,7 +193,7 @@ export default function EditDoctor() {
                 />
               </div>
 
-              {/* Department */}
+              {}
               <div className="mb-3">
                 <label
                   className="form-label small fw-semibold"
@@ -227,7 +227,7 @@ export default function EditDoctor() {
                 </select>
               </div>
 
-              {/* Email */}
+              {}
               <div className="mb-3">
                 <label
                   className="form-label small fw-semibold"
@@ -245,7 +245,7 @@ export default function EditDoctor() {
                 />
               </div>
 
-              {/* Availability */}
+              {}
               <div className="mb-4">
                 <label
                   className="form-label small fw-semibold"
@@ -267,7 +267,7 @@ export default function EditDoctor() {
                 />
               </div>
 
-              {/* Buttons */}
+              {}
               <div className="d-flex gap-2">
                 <button
                   type="button"

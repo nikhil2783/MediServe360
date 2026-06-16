@@ -81,7 +81,7 @@ export default function AddInvoice() {
                     />
                 </div>
 
-                {/* ✅ Invoice date shown as read-only — auto set to today */}
+                {}
                 <div className="mb-3">
                     <label className="form-label">Invoice Date</label>
                     <input

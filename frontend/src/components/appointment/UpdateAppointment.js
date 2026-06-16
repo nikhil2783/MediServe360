@@ -207,7 +207,7 @@ export default function UpdateAppointment() {
 
       <form onSubmit={updateHandler}>
 
-        {/* Date */}
+        {}
         <div className="mb-3">
           <label className="form-label">
             Date <span className="text-danger">*</span>
@@ -222,7 +222,7 @@ export default function UpdateAppointment() {
           />
         </div>
 
-        {/* Time */}
+        {}
         <div className="mb-3">
           <label className="form-label">
             Time <span className="text-danger">*</span>
@@ -236,7 +236,7 @@ export default function UpdateAppointment() {
           />
         </div>
 
-        {/* Duration */}
+        {}
         <div className="mb-3">
           <label className="form-label">
             Duration (minutes)
@@ -252,7 +252,7 @@ export default function UpdateAppointment() {
           />
         </div>
 
-        {/* Patient */}
+        {}
         <div className="mb-3">
           <label className="form-label">
             Select Patient <span className="text-danger">*</span>
@@ -272,7 +272,7 @@ export default function UpdateAppointment() {
           </select>
         </div>
 
-        {/* Doctor */}
+        {}
         <div className="mb-3">
           <label className="form-label">
             Select Doctor <span className="text-danger">*</span>
@@ -292,7 +292,7 @@ export default function UpdateAppointment() {
           </select>
         </div>
 
-        {/* Status */}
+        {}
         <div className="mb-3">
           <label className="form-label">Status</label>
           <input
@@ -302,7 +302,7 @@ export default function UpdateAppointment() {
           />
         </div>
 
-        {/* Submit */}
+        {}
         <button
           className="btn btn-warning w-100"
           type="submit"

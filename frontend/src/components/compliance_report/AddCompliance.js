@@ -109,7 +109,7 @@ export default function AddCompliance() {
 
             <h3 className="mb-4">Add Compliance Report</h3>
 
-            {/* Scope */}
+            {}
             <div className="mb-3">
                 <label className="form-label">
                     Scope <span style={{ color: "red" }}>*</span>
@@ -123,7 +123,7 @@ export default function AddCompliance() {
                 />
             </div>
 
-            {/* Metrics */}
+            {}
             <div className="mb-3">
                 <label className="form-label">
                     Metrics <span style={{ color: "red" }}>*</span>
@@ -137,7 +137,7 @@ export default function AddCompliance() {
                 />
             </div>
 
-            {/* Date */}
+            {}
             <div className="mb-3">
                 <label className="form-label">
                     Report Date <span style={{ color: "red" }}>*</span>
@@ -151,7 +151,7 @@ export default function AddCompliance() {
                 />
             </div>
 
-            {/* KPI Category */}
+            {}
             <div className="mb-3">
                 <label className="form-label">
                     KPI Category <span style={{ color: "red" }}>*</span>

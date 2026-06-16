@@ -91,7 +91,7 @@ export default function PaginatedBed() {
                                             : <span className="text-muted">—</span>
                                         }
                                     </td>
-                                    {/* ✅ Patient name from lookup map */}
+                                    {}
                                     <td>
                                         {e.patientId !== 0
                                             ? patientMap[e.patientId] || <span className="text-muted">Loading...</span>

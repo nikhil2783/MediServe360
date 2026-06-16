@@ -113,13 +113,13 @@ export default function UpdateCompliance() {
     <div className="container mt-4">
       <h2>Update Compliance Report {id}</h2>
 
-      {/* ID */}
+      {}
       <div className="mb-3">
         <label className="form-label">Report ID</label>
         <input className="form-control" value={id} readOnly />
       </div>
 
-      {/* Scope */}
+      {}
       <div className="mb-3">
         <label className="form-label">
           Scope <span style={{ color: "red" }}>*</span>
@@ -132,7 +132,7 @@ export default function UpdateCompliance() {
         />
       </div>
 
-      {/* Metrics */}
+      {}
       <div className="mb-3">
         <label className="form-label">
           Metrics <span style={{ color: "red" }}>*</span>
@@ -144,7 +144,7 @@ export default function UpdateCompliance() {
         />
       </div>
 
-      {/*  Date */}
+      {}
       <div className="mb-3">
         <label className="form-label">
           Date <span style={{ color: "red" }}>*</span>
@@ -167,7 +167,7 @@ export default function UpdateCompliance() {
           max={todayDate}
         />
 
-        {/*  Inline error message */}
+        {}
         {dateError && (
           <div className="invalid-feedback">
             {dateError}
@@ -175,7 +175,7 @@ export default function UpdateCompliance() {
         )}
       </div>
 
-      {/* Button */}
+      {}
       <button className="btn btn-warning w-100" onClick={updateButtonHandler}>
         Update Compliance Report
       </button>

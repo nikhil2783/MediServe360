@@ -32,7 +32,7 @@ export default function ViewCareNotes() {
     return (
         <div>
 
-            {/* Header */}
+            {}
             <div className="d-flex align-items-start justify-content-between mb-4">
                 <div>
                     <h4 className="fw-bold text-dark mb-1">
@@ -62,7 +62,7 @@ export default function ViewCareNotes() {
                 </div>
             </div>
 
-            {/* Step 1 - Search Patient */}
+            {}
             <div className="card mb-4">
                 <div className="card-header fw-semibold" style={{ backgroundColor: "#e7f1ff" }}>
                     Step 1 — Search and select a patient
@@ -72,7 +72,7 @@ export default function ViewCareNotes() {
                 </div>
             </div>
 
-            {/* Selected Patient Badge */}
+            {}
             {selectedPatient && (
                 <div className="alert alert-success d-flex justify-content-between align-items-center mb-4">
                     <span>
@@ -88,7 +88,7 @@ export default function ViewCareNotes() {
                 </div>
             )}
 
-            {/* Loading */}
+            {}
             {loading && (
                 <div className="text-center py-4">
                     <div className="spinner-border text-primary" role="status" />
@@ -96,17 +96,17 @@ export default function ViewCareNotes() {
                 </div>
             )}
 
-            {/* Error */}
+            {}
             {error && <div className="alert alert-danger">{error}</div>}
 
-            {/* No notes */}
+            {}
             {selectedPatient && !loading && notes.length === 0 && !error && (
                 <div className="alert alert-warning">
                     No care notes recorded yet for {selectedPatient.patientName}.
                 </div>
             )}
 
-            {/* Notes Cards */}
+            {}
             {notes.length > 0 && (
                 <div>
                     <h6 className="mb-3 text-muted">

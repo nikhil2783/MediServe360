@@ -59,7 +59,7 @@ export default function FindAllBeds() {
                                     : <span className="text-muted">—</span>
                                 }
                             </td>
-                            {/* ✅ Patient name from lookup map */}
+                            {}
                             <td>
                                 {bed.patientId !== 0
                                     ? patientMap[bed.patientId] || <span className="text-muted">Loading...</span>

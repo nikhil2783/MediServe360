@@ -83,7 +83,7 @@ export default function NotificationPage() {
                 </div>
             )}
 
-            {/* Pagination */}
+            {}
             <div className="d-flex justify-content-center align-items-center mt-3">
 
                 <button

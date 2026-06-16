@@ -36,7 +36,7 @@ export default function PatientSearch({ onSelect }) {
 
     return (
         <div>
-            {/* Search bar */}
+            {}
             <div className="input-group mb-3" style={{ maxWidth: "500px" }}>
                 <input
                     type="text"
@@ -55,19 +55,19 @@ export default function PatientSearch({ onSelect }) {
                 </button>
             </div>
 
-            {/* Error */}
+            {}
             {error && (
                 <div className="alert alert-danger py-2">{error}</div>
             )}
 
-            {/* No results */}
+            {}
             {searched && results.length === 0 && (
                 <div className="alert alert-warning py-2">
                     No patients found for "{query}".
                 </div>
             )}
 
-            {/* Results table */}
+            {}
             {results.length > 0 && (
                 <table className="table table-bordered table-hover">
                     <thead className="table-light">

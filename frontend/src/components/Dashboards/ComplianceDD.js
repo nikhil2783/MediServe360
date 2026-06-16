@@ -176,7 +176,7 @@ export default function ComplianceDD() {
     <div>
       <TopNavbar />
       <div className="container-fluid py-4 px-4">
-        {/* Page header */}
+        {}
         <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
           <div>
             <h3 className="mb-1">📊 Reports & Analytics</h3>
@@ -197,7 +197,7 @@ export default function ComplianceDD() {
           </div>
         </div>
 
-        {/* ✅ Live KPI cards — real data from microservices */}
+        {}
         <h6 className="text-muted mb-2">Live Operational KPIs</h6>
         <div className="row g-3 mb-4">
           {[
@@ -261,7 +261,7 @@ export default function ComplianceDD() {
           ))}
         </div>
 
-        {/* Summary counters */}
+        {}
         <div className="row g-3 mb-4">
           {[
             {
@@ -291,7 +291,7 @@ export default function ComplianceDD() {
           ))}
         </div>
 
-        {/* Modules */}
+        {}
         <h6 className="text-muted mb-2">Modules</h6>
         <div className="row g-3 mb-4">
           <div className="col-6 col-sm-4 col-md-3">
@@ -316,7 +316,7 @@ export default function ComplianceDD() {
           </div>
         </div>
 
-        {/* Filters */}
+        {}
         <div className="card border-0 shadow-sm mb-3">
           <div className="card-body">
             <h6 className="card-title mb-3">🔍 Filter Reports</h6>
@@ -376,7 +376,7 @@ export default function ComplianceDD() {
           </div>
         </div>
 
-        {/* Reports table */}
+        {}
         <div className="card border-0 shadow-sm">
           <div className="card-body">
             <h6 className="card-title mb-3">

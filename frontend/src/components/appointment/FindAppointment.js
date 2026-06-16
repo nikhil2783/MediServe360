@@ -72,12 +72,12 @@ export default function FindAppointment() {
         </button>
       </form>
 
-      {/* No record */}
+      {}
       {searched && !appointment.id && (
         <p className="mt-3 text-danger">No records found</p>
       )}
 
-      {/* Appointment Data */}
+      {}
       {appointment.id && (
         <div className="table-responsive">
           <table className="table table-bordered table-striped mt-4">
@@ -100,7 +100,7 @@ export default function FindAppointment() {
                 <td>{appointment.status}</td>
                 <td>{appointment.durationMinutes} mins</td>
 
-                {/* Patient Info */}
+                {}
                 <td>
                   {appointment.patient?.patientName} <br />
                   <small>
@@ -108,7 +108,7 @@ export default function FindAppointment() {
                   </small>
                 </td>
 
-                {/* Doctor Info */}
+                {}
                 <td>
                   {appointment.doctor?.name} <br />
                   <small>

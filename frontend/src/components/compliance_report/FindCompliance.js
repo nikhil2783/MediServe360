@@ -65,7 +65,7 @@ export default function FindCompliance() {
         <div className="container mt-4">
             <h2>Find Compliance Report</h2>
 
-            {/*  Input */}
+            {}
             <div className="input-group mb-3">
                 <input
                     className={`form-control ${scopeError ? "is-invalid" : ""}`} // red border
@@ -78,21 +78,21 @@ export default function FindCompliance() {
                 </button>
             </div>
 
-            {/*  Show only when invalid */}
+            {}
             {scopeError && (
                 <small style={{ color: "red" }}>
                     {scopeError}
                 </small>
             )}
 
-            {/*  Error */}
+            {}
             {error && (
                 <div className="alert alert-danger mt-3">
                     {error}
                 </div>
             )}
 
-            {/*  Table */}
+            {}
             {records.length > 0 && (
                 <table className="table table-bordered table-striped mt-3">
                     <thead className="table-dark">

@@ -73,7 +73,7 @@ export default function FindKpi() {
                                 <td>{e.kpiReportScope}</td>
                                 <td>{e.kpiMetrics}</td>
                                 <td>{e.kpiGeneratedDate}</td>
-                                {/* ✅ Fixed: use flat field complianceReportId */}
+                                {}
                                 <td>{e.complianceReportId ?? "N/A"}</td>
                             </tr>
                         ))}

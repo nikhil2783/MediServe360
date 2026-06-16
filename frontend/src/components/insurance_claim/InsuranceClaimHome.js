@@ -15,12 +15,12 @@ export default function InsuranceClaimHome() {
   return (
     <div className="min-vh-100 bg-light">
 
-      {/* ✅ Global Navbar */}
+      {}
       <TopNavbar />
 
       <div className="container-fluid px-4 py-4">
 
-        {/* ✅ Header (Clickable) */}
+        {}
         <div className="mb-4">
           <Link
             to="/insuranceClaim"
@@ -36,7 +36,7 @@ export default function InsuranceClaimHome() {
           </p>
         </div>
 
-        {/* ✅ Cards */}
+        {}
         <div className="row g-3 mb-4">
 
           {navLinks.map((link) => (
@@ -65,7 +65,7 @@ export default function InsuranceClaimHome() {
 
         </div>
 
-        {/* ✅ Content Area */}
+        {}
         {!location.pathname.startsWith("/insuranceClaim/") ? (
 
           <div className="card shadow-sm p-4 text-muted text-center">

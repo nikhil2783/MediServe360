@@ -100,7 +100,7 @@ export default function AddKpi() {
         <div className="container mt-4">
             <h2>Add KPI Report</h2>
 
-            {/* Scope */}
+            {}
             <div className="mb-3">
                 <label className="form-label">
                     Scope <span style={{ color: "red" }}>*</span>
@@ -114,7 +114,7 @@ export default function AddKpi() {
                 />
             </div>
 
-            {/* Metrics */}
+            {}
             <div className="mb-3">
                 <label className="form-label">
                     Metrics <span style={{ color: "red" }}>*</span>
@@ -128,7 +128,7 @@ export default function AddKpi() {
                 />
             </div>
 
-            {/* Date */}
+            {}
             <div className="mb-3">
                 <label className="form-label">
                     Date <span style={{ color: "red" }}>*</span>
@@ -142,7 +142,7 @@ export default function AddKpi() {
                 />
             </div>
 
-            {/* Compliance ID */}
+            {}
             <div className="mb-3">
                 <label className="form-label">
                     Compliance Report ID <span style={{ color: "red" }}>*</span>

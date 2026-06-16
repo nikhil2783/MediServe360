@@ -89,7 +89,7 @@ export default function UpdateDoctor() {
       <h3 className="mb-4">Update Doctor</h3>
       <form onSubmit={updateHandler}>
 
-        {/* Doctor Name */}
+        {}
         <div className="mb-3">
           <label className="form-label">
             Doctor Name <span style={{ color: "red" }}> *</span>
@@ -106,7 +106,7 @@ export default function UpdateDoctor() {
           />
         </div>
 
-        {/* Department */}
+        {}
         <div className="mb-3">
           <label className="form-label">
             Department <span style={{ color: "red" }}> *</span>
@@ -123,7 +123,7 @@ export default function UpdateDoctor() {
           />
         </div>
 
-        {/* Availability */}
+        {}
         <div className="mb-3">
           <label className="form-label">
             Availability (HH:mm-HH:mm) <span style={{ color: "red" }}> *</span>
@@ -140,7 +140,7 @@ export default function UpdateDoctor() {
           />
         </div>
 
-        {/* Button */}
+        {}
         <button
           className="btn btn-warning w-100"
           type="submit"

@@ -57,7 +57,7 @@ export default function AddVitals() {
     return (
         <div>
 
-            {/* Header */}
+            {}
             <div className="d-flex align-items-start justify-content-between mb-4">
                 <div>
                     <h4 className="fw-bold text-dark mb-1">
@@ -87,7 +87,7 @@ export default function AddVitals() {
                 </div>
             </div>
 
-            {/* Step 1 - Search Patient */}
+            {}
             <div className="card mb-4">
                 <div className="card-header fw-semibold" style={{ backgroundColor: "#e7f1ff" }}>
                     Step 1 — Search and select a patient
@@ -97,7 +97,7 @@ export default function AddVitals() {
                 </div>
             </div>
 
-            {/* Selected Patient Badge */}
+            {}
             {selectedPatient && (
                 <div className="alert alert-success d-flex justify-content-between align-items-center mb-4">
                     <span>
@@ -110,7 +110,7 @@ export default function AddVitals() {
                 </div>
             )}
 
-            {/* Step 2 - Vitals Form */}
+            {}
             <div className="card mb-4">
                 <div className="card-header fw-semibold" style={{ backgroundColor: "#e7f1ff" }}>
                     Step 2 — Enter vitals

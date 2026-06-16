@@ -50,7 +50,7 @@ export default function FindPatient() {
   return (
     <div className="mt-3">
 
-      {/* ✅ Header + Search Bar */}
+      {}
       <div className="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
 
         <h4 className="mb-0">🔍 Find Patient</h4>
@@ -93,14 +93,14 @@ export default function FindPatient() {
 
       </div>
 
-      {/* ✅ No results message */}
+      {}
       {searched && records.length === 0 && name && (
         <p className="text-danger fw-semibold">
           ❌ No patients found with this name
         </p>
       )}
 
-      {/* ✅ Table */}
+      {}
       {records.length > 0 && (
         <div>
 
@@ -133,7 +133,7 @@ export default function FindPatient() {
                     <td>{e.patientPhoneNumber}</td>
                     <td>{e.patientMedicalHistory}</td>
 
-                    {/* ✅ Status Badge */}
+                    {}
                     <td>
                       <span
                         className={`badge 

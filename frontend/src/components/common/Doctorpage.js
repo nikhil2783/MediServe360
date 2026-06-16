@@ -115,7 +115,7 @@ export default function Doctorpage() {
 
           </div>
 
-          {/* ✅ Pagination */}
+          {}
           <div className="d-flex justify-content-between mt-3">
 
             <button

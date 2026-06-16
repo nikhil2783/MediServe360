@@ -10,7 +10,7 @@ export default function NurseDD() {
   return (
     <div className="min-vh-100 bg-light">
 
-      {/* Navbar */}
+      {}
       <nav className="navbar navbar-dark bg-dark shadow-sm">
         <div className="container-fluid px-4">
           <span className="navbar-brand fw-bold fs-5">🏥 Nurse Portal</span>
@@ -22,16 +22,16 @@ export default function NurseDD() {
         </div>
       </nav>
 
-      {/* Main Content */}
+      {}
       <div className="container py-5">
 
-        {/* Page Header */}
+        {}
         <div className="text-center mb-5">
           <h3 className="fw-bold text-dark mb-1">Nurse Dashboard</h3>
           <p className="text-muted small">Select a module to manage</p>
         </div>
 
-        {/* Link Grid */}
+        {}
         <div className="row g-3 justify-content-center">
           {navLinks.map((link) => (
             <div className="col-6 col-sm-4 col-md-3 col-lg-2" key={link.to}>

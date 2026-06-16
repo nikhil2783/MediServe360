@@ -26,7 +26,7 @@ export default function PatientHome() {
           </p>
         </div>
 
-        {/* Cards */}
+        {}
         <div className="row g-3 mb-4">
 
           {navLinks.map((link) => (

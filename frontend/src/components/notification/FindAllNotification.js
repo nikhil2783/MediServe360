@@ -100,7 +100,7 @@ export default function FindAllNotification() {
                                 >
                                     <div className="card-body d-flex align-items-start justify-content-between gap-3 p-4">
 
-                                        {/* Icon */}
+                                        {}
                                         <div style={{
                                             width: 44, height: 44, borderRadius: "12px",
                                             background: cat.bg, flexShrink: 0,
@@ -110,7 +110,7 @@ export default function FindAllNotification() {
                                             {categoryIcon(m.category)}
                                         </div>
 
-                                        {/* Content */}
+                                        {}
                                         <div style={{ flex: 1 }}>
                                             <div className="d-flex align-items-center gap-2 mb-1 flex-wrap">
                                                 <span style={{
@@ -143,7 +143,7 @@ export default function FindAllNotification() {
                                             )}
                                         </div>
 
-                                        {/* Delete */}
+                                        {}
                                         <Link
                                             to={`/notification/delete/${id}`}
                                             className="btn btn-sm fw-semibold"

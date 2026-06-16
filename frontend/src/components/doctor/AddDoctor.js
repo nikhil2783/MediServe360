@@ -66,7 +66,7 @@ export default function AddDoctor() {
         buttonHandler();
       }}>
 
-        {/* Doctor Name */}
+        {}
         <div className="mb-3">
           <label className="form-label">
             Doctor Name <span style={{ color: "red" }}> *</span>
@@ -83,7 +83,7 @@ export default function AddDoctor() {
           />
         </div>
 
-        {/* Department */}
+        {}
         <div className="mb-3">
           <label className="form-label">
             Department <span style={{ color: "red" }}> *</span>
@@ -100,7 +100,7 @@ export default function AddDoctor() {
           />
         </div>
 
-        {/* Availability */}
+        {}
         <div className="mb-3">
           <label className="form-label">
             Availability (HH:mm-HH:mm) <span style={{ color: "red" }}> *</span>
@@ -117,7 +117,7 @@ export default function AddDoctor() {
           />
         </div>
 
-        {/* Submit Button */}
+        {}
         <button
           className="btn btn-primary w-100"
           type="submit"

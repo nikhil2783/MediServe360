@@ -32,7 +32,7 @@ export default function ViewVitals() {
     return (
         <div>
 
-            {/* Header */}
+            {}
             <div className="d-flex align-items-start justify-content-between mb-4">
                 <div>
                     <h4 className="fw-bold text-dark mb-1">
@@ -62,7 +62,7 @@ export default function ViewVitals() {
                 </div>
             </div>
 
-            {/* Step 1 - Search Patient */}
+            {}
             <div className="card mb-4">
                 <div className="card-header fw-semibold" style={{ backgroundColor: "#e7f1ff" }}>
                     Step 1 — Search and select a patient
@@ -72,7 +72,7 @@ export default function ViewVitals() {
                 </div>
             </div>
 
-            {/* Selected Patient Badge */}
+            {}
             {selectedPatient && (
                 <div className="alert alert-success d-flex justify-content-between align-items-center mb-4">
                     <span>
@@ -88,7 +88,7 @@ export default function ViewVitals() {
                 </div>
             )}
 
-            {/* Loading */}
+            {}
             {loading && (
                 <div className="text-center py-4">
                     <div className="spinner-border text-primary" role="status" />
@@ -96,17 +96,17 @@ export default function ViewVitals() {
                 </div>
             )}
 
-            {/* Error */}
+            {}
             {error && <div className="alert alert-danger">{error}</div>}
 
-            {/* No vitals */}
+            {}
             {selectedPatient && !loading && vitals.length === 0 && !error && (
                 <div className="alert alert-warning">
                     No vitals recorded yet for {selectedPatient.patientName}.
                 </div>
             )}
 
-            {/* Vitals Table */}
+            {}
             {vitals.length > 0 && (
                 <div className="card">
                     <div className="card-header fw-semibold" style={{ backgroundColor: "#e7f1ff" }}>

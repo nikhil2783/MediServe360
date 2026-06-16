@@ -32,7 +32,7 @@ export default function DisplayDoctors() {
   return (
     <div>
 
-      {/* Header + Search */}
+      {}
       <div className="d-flex justify-content-between align-items-center mb-3">
 
         <h2 className="mb-0">All Doctors</h2>

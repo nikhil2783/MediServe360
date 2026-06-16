@@ -49,7 +49,7 @@ export default function TopNavbar({ onMyProfile, onEditProfile }) {
         height: 64,
       }}
     >
-      {/* Brand */}
+      {}
       <Link to={getDashboardRoute()} className="text-decoration-none d-flex align-items-center gap-2">
         <div className="d-flex align-items-center justify-content-center rounded-3"
           style={{ width: 40, height: 40, background: "linear-gradient(135deg, #0ea5e9, #3b82f6)" }}>
@@ -61,10 +61,10 @@ export default function TopNavbar({ onMyProfile, onEditProfile }) {
         </div>
       </Link>
 
-      {/* Right */}
+      {}
       <div className="d-flex align-items-center gap-3">
 
-        {/* Notification — only for PATIENT and DOCTOR */}
+        {}
         {showNotification && (
           <button className="btn text-white"
             style={{ background: "rgba(255,255,255,0.07)" }}
@@ -81,7 +81,7 @@ export default function TopNavbar({ onMyProfile, onEditProfile }) {
           <i className={`bi ${isDark ? "bi-sun" : "bi-moon-stars"}`}></i>
         </button>
 
-        {/* User dropdown */}
+        {}
         <div className="position-relative" ref={dropdownRef}>
           <button
             className="btn d-flex align-items-center gap-2 text-white"
@@ -100,7 +100,7 @@ export default function TopNavbar({ onMyProfile, onEditProfile }) {
               className="dropdown-menu show shadow animated-dropdown"
               style={{ position: "absolute", right: 0, top: "110%", minWidth: 220, zIndex: 1000 }}>
 
-              {/* User info */}
+              {}
               <li className="px-3 py-2">
                 <strong>{userName}</strong><br />
                 <small className="text-muted">{role}</small>
@@ -108,7 +108,7 @@ export default function TopNavbar({ onMyProfile, onEditProfile }) {
 
               <li><hr className="dropdown-divider" /></li>
 
-              {/* My Profile */}
+              {}
               <li>
                 {onMyProfile ? (
                   <button className="dropdown-item" onClick={() => { setOpen(false); onMyProfile(); }}>
@@ -121,7 +121,7 @@ export default function TopNavbar({ onMyProfile, onEditProfile }) {
                 )}
               </li>
 
-              {/* Edit Profile */}
+              {}
               <li>
                 {onEditProfile ? (
                   <button className="dropdown-item" onClick={() => { setOpen(false); onEditProfile(); }}>

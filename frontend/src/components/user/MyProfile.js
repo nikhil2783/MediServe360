@@ -37,7 +37,7 @@ export default function MyProfile() {
     <div className="min-vh-100" style={{ backgroundColor: "#f0f2f5" }}>
       <TopNavbar />
 
-      {/* Cover banner */}
+      {}
       <div
         style={{
           height: "180px",
@@ -47,7 +47,7 @@ export default function MyProfile() {
 
       <div className="container" style={{ maxWidth: 720, marginTop: "-70px" }}>
 
-        {/* Avatar + name row */}
+        {}
         <div className="d-flex align-items-end gap-4 mb-3">
           <div
             className="rounded-circle d-flex align-items-center justify-content-center text-white fw-bold shadow"
@@ -75,7 +75,7 @@ export default function MyProfile() {
           </div>
         </div>
 
-        {/* Info card */}
+        {}
         <div className="card border-0 shadow-sm mb-3" style={{ borderRadius: "14px" }}>
           <div className="card-body p-4">
             <h6 className="fw-bold text-muted text-uppercase mb-3" style={{ fontSize: "0.75rem", letterSpacing: "0.08em" }}>
@@ -148,7 +148,7 @@ export default function MyProfile() {
           </div>
         </div>
 
-        {/* Action buttons */}
+        {}
         <div className="d-flex gap-2 mb-5">
           <button
             className="btn fw-semibold px-4"

@@ -69,7 +69,7 @@ export default function FindUser() {
                 </button>
             </form>
 
-            {/* No record */}
+            {}
             {searched && !data.userId && (
                 <p className="mt-3 text-danger">No records found</p>
             )}
