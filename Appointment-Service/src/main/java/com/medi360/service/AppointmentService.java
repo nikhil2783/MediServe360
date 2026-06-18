@@ -220,92 +220,74 @@ public class AppointmentService {
                 .orElseThrow(() -> new AppointmentNotFoundException(
                         "Appointment not found with id " + updated.getId()));
 
-        PatientDTO patient;
-        try {
-            PatientResponseDTO resp = patientClient.getPatientById(updated.getPatientId());
-            patient = (resp != null) ? resp.getPatient() : null;
-        } catch (Exception e) {
-            throw new ExternalServiceException("Patient service unavailable");
-        }
-        if (patient == null) {
-            throw new PatientNotFoundException("Patient not found with id " + updated.getPatientId());
-        }
+        int patientId = updated.getPatientId();
+        int doctorId = updated.getDoctorId();
 
-        DoctorDTO doctor;
-        try {
-            DoctorResponseDTO resp = doctorClient.getDoctorById(updated.getDoctorId());
-            doctor = mapDoctor(resp);
-        } catch (Exception e) {
-            throw new ExternalServiceException("Doctor service unavailable");
+        PatientResponseDTO presp = patientClient.getPatientById(patientId);
+        if (presp == null || presp.getPatient() == null) {
+            throw new PatientNotFoundException("Patient not found with id " + patientId);
         }
-        if (doctor == null) {
-            throw new DoctorNotFoundException("Doctor not found with id " + updated.getDoctorId());
-        }
+        
 
-        existing.setPatientId(updated.getPatientId());
-        existing.setDoctorId(updated.getDoctorId());
+        DoctorResponseDTO dresp = doctorClient.getDoctorById(doctorId);
+        if (dresp == null || dresp.getDoctor() == null) {
+            throw new DoctorNotFoundException("Doctor not found with id " + doctorId);
+        }
+        DoctorDTO doctor = mapDoctor(dresp);
+
+        existing.setPatientId(patientId);
+        existing.setDoctorId(doctorId);
         existing.setDurationMinutes(updated.getDurationMinutes());
         existing.setReason(updated.getReason());
 
-        String requestedStatus = updated.getStatus();
+        String status = updated.getStatus();
 
-        if ("CANCELLED".equalsIgnoreCase(requestedStatus) ||
-            "RESCHEDULED".equalsIgnoreCase(requestedStatus)) {
+        if ("CANCELLED".equalsIgnoreCase(status) ||
+            "RESCHEDULED".equalsIgnoreCase(status)) {
+
             if (updated.getReason() == null || updated.getReason().trim().isEmpty()) {
-                throw new SlotNotAvailableException("Reason is required when cancelling or rescheduling");
+                throw new SlotNotAvailableException("Reason is required");
             }
         }
 
-        if ("COMPLETED".equalsIgnoreCase(requestedStatus)) {
+        if ("COMPLETED".equalsIgnoreCase(status)) {
             existing.setStatus("COMPLETED");
             existing.setDate(updated.getDate());
             existing.setTime(updated.getTime());
-            Appointment saved = appointmentRepository.save(existing);
-            sendNotification(updated.getDoctorId(),
-                String.format("Appointment #%d for patient %s marked COMPLETED.",
-                    saved.getId(), patient.getPatientName()), "APPOINTMENT");
-            return saved;
+            return appointmentRepository.save(existing);
         }
 
-        if ("CANCELLED".equalsIgnoreCase(requestedStatus)) {
+        if ("CANCELLED".equalsIgnoreCase(status)) {
             existing.setStatus("CANCELLED");
             existing.setDate(updated.getDate());
             existing.setTime(updated.getTime());
-            Appointment saved = appointmentRepository.save(existing);
-            sendNotification(updated.getDoctorId(),
-                String.format("Appointment #%d for patient %s CANCELLED. Reason: %s.",
-                    saved.getId(), patient.getPatientName(), saved.getReason()), "CANCELLATION");
-            return saved;
+            return appointmentRepository.save(existing);
         }
 
         if (!isDoctorAvailable(doctor, updated.getTime())) {
-            throw new SlotNotAvailableException("Doctor is not available at " + updated.getTime()
-                    + ". Working hours: " + doctor.getAvailabilitySchedule());
+            throw new SlotNotAvailableException(
+                    "Doctor not available at " + updated.getTime());
         }
 
         List<Appointment> existingOnDay = appointmentRepository
-                .findByDoctorIdAndDateOrderByTimeAsc(updated.getDoctorId(), updated.getDate());
+                .findByDoctorIdAndDateOrderByTimeAsc(doctorId, updated.getDate());
 
         for (Appointment a : existingOnDay) {
             if (a.getId() == existing.getId()) continue;
+
             LocalTime exEnd = a.getTime().plusMinutes(a.getDurationMinutes());
             LocalTime newEnd = updated.getTime().plusMinutes(updated.getDurationMinutes());
+
             if (overlaps(updated.getTime(), newEnd, a.getTime(), exEnd)) {
-                throw new SlotNotAvailableException("Slot " + updated.getTime() + " is already taken.");
+                throw new SlotNotAvailableException("Slot already booked");
             }
         }
 
         existing.setStatus("RESCHEDULED");
         existing.setDate(updated.getDate());
         existing.setTime(updated.getTime());
-        Appointment saved = appointmentRepository.save(existing);
 
-        sendNotification(updated.getDoctorId(),
-            String.format("Appointment #%d for patient %s rescheduled to %s at %s. Reason: %s.",
-                saved.getId(), patient.getPatientName(),
-                saved.getDate(), saved.getTime(), saved.getReason()), "RESCHEDULE");
-
-        return saved;
+        return appointmentRepository.save(existing);
     }
 
     @Transactional

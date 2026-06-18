@@ -92,7 +92,7 @@ export default function DisplayAppointments() {
                       className="btn btn-warning btn-sm"
                       to={`/appointment/edit/${a.id}`}
                     >
-                      Edit
+                      Update
                     </Link>
                   </td>
 

@@ -218,7 +218,7 @@ export default function DoctorDD() {
                     <div className="row g-3 mb-4">
                         {statCards.map((s) => (
                             <div className="col-12 col-sm-6 col-xl-3" key={s.label}>
-                                <div className={`card border-0 shadow-sm border-start border-4 border-${s.color}`}>
+                                <div className={`card h-100 border-0 shadow-sm border-start border-4 border-${s.color}`}>
                                     <div className="card-body d-flex align-items-center gap-3">
                                         <div className={`bg-${s.color} bg-opacity-10 rounded-3 d-flex align-items-center justify-content-center stat-icon-box`}>
                                             {s.icon}

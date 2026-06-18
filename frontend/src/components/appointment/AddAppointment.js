@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
 export default function AddAppointment() {
-
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [durationMinutes, setDurationMinutes] = useState(30);
@@ -24,9 +23,9 @@ export default function AddAppointment() {
         "http://localhost:9002/api/patient/fetchAllPatients",
         {
           headers: {
-            Authorization: "Bearer " + localStorage.getItem("token")
-          }
-        }
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        },
       );
       setPatients(res.data || []);
     } catch {
@@ -36,14 +35,11 @@ export default function AddAppointment() {
 
   const fetchDoctors = async () => {
     try {
-      const res = await axios.get(
-        "http://localhost:9002/api/doctor/getAll",
-        {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("token")
-          }
-        }
-      );
+      const res = await axios.get("http://localhost:9002/api/doctor/getAll", {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      });
       setDoctors(res.data || []);
     } catch {
       toast.error("Unable to load doctors. Please try again.");
@@ -51,9 +47,7 @@ export default function AddAppointment() {
   };
 
   const validateDoctorAvailability = () => {
-    const selectedDoctor = doctors.find(
-      (doc) => doc.id === parseInt(doctorId)
-    );
+    const selectedDoctor = doctors.find((doc) => doc.id === parseInt(doctorId));
 
     if (!selectedDoctor) {
       toast.error("Invalid doctor selection");
@@ -101,6 +95,14 @@ export default function AddAppointment() {
       return;
     }
 
+    const now = new Date();
+    const selectedDateTime = new Date(`${date}T${time}`);
+
+    if (selectedDateTime < now) {
+      toast.error("Cannot book appointment in past time");
+      return;
+    }
+
     if (!validateDoctorAvailability()) return;
 
     setLoading(true);
@@ -113,9 +115,9 @@ export default function AddAppointment() {
           time: formattedTime,
           durationMinutes: parseInt(durationMinutes),
           status: "BOOKED",
-          patientId: parseInt(patientId),  
-          doctorId: parseInt(doctorId) 
-        }
+          patientId: parseInt(patientId),
+          doctorId: parseInt(doctorId),
+        },
       };
 
       const res = await axios.post(
@@ -123,9 +125,9 @@ export default function AddAppointment() {
         data,
         {
           headers: {
-            Authorization: "Bearer " + localStorage.getItem("token")
-          }
-        }
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        },
       );
 
       const message = res.data?.message || "Appointment created successfully";
@@ -136,7 +138,6 @@ export default function AddAppointment() {
       setDurationMinutes(30);
       setPatientId("");
       setDoctorId("");
-
     } catch (error) {
       let message =
         error.response?.data?.errorMessage ||
@@ -150,7 +151,6 @@ export default function AddAppointment() {
       }
 
       toast.error(message);
-
     } finally {
       setLoading(false);
     }
@@ -161,9 +161,10 @@ export default function AddAppointment() {
       <h3 className="mb-4">Book an Appointment</h3>
 
       <form onSubmit={handleSubmit}>
-
         <div className="mb-3">
-          <label className="form-label">Date <span className="text-danger">*</span></label>
+          <label className="form-label">
+            Date <span className="text-danger">*</span>
+          </label>
           <input
             className="form-control"
             type="date"
@@ -175,7 +176,9 @@ export default function AddAppointment() {
         </div>
 
         <div className="mb-3">
-          <label className="form-label">Time <span className="text-danger">*</span></label>
+          <label className="form-label">
+            Time <span className="text-danger">*</span>
+          </label>
           <input
             className="form-control"
             type="time"
@@ -200,7 +203,9 @@ export default function AddAppointment() {
         </div>
 
         <div className="mb-3">
-          <label className="form-label">Select Patient <span className="text-danger">*</span></label>
+          <label className="form-label">
+            Select Patient <span className="text-danger">*</span>
+          </label>
           <select
             className="form-select"
             value={patientId}
@@ -217,7 +222,9 @@ export default function AddAppointment() {
         </div>
 
         <div className="mb-3">
-          <label className="form-label">Select Doctor <span className="text-danger">*</span></label>
+          <label className="form-label">
+            Select Doctor <span className="text-danger">*</span>
+          </label>
           <select
             className="form-select"
             value={doctorId}
@@ -233,12 +240,20 @@ export default function AddAppointment() {
           </select>
         </div>
 
-        <button className="btn btn-primary w-100" type="submit" disabled={loading}>
+        <button
+          className="btn btn-primary w-100"
+          type="submit"
+          disabled={loading}
+        >
           {loading ? (
-            <><span className="spinner-border spinner-border-sm me-2"></span>Submitting...</>
-          ) : "Add Appointment"}
+            <>
+              <span className="spinner-border spinner-border-sm me-2"></span>
+              Submitting...
+            </>
+          ) : (
+            "Add Appointment"
+          )}
         </button>
-
       </form>
     </div>
   );

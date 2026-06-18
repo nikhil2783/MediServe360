@@ -49,8 +49,8 @@
     opacity: 0.3;
 }
 
-.edit-profile-btn {
-    background: #1d4ed8;
+button.edit-profile-btn {
+    background: #416ce2;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -58,8 +58,8 @@
     font-weight: 600;
 }
 
-.edit-profile-btn:hover {
-    background: #1e40af;
+button.edit-profile-btn:hover {
+    background: #0241ee;
     color: #fff;
 }
 

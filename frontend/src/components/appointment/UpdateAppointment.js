@@ -133,16 +133,16 @@ export default function UpdateAppointment() {
       const formattedTime = time.length === 5 ? time + ":00" : time;
 
       const data = {
-        appointment: {
-          id: parseInt(aid),
-          date,
-          time: formattedTime,
-          durationMinutes: parseInt(durationMinutes),
-          status: status || "BOOKED",
-          patient: { patientId: parseInt(patientId) },
-          doctor: { id: parseInt(doctorId) }
-        }
-      };
+  appointment: {
+    id: parseInt(aid),
+    date,
+    time: formattedTime,
+    durationMinutes: parseInt(durationMinutes),
+    status: status || "BOOKED",
+    patientId: parseInt(patientId),
+    doctorId: parseInt(doctorId)
+  }
+};
 
       const res = await axios.put(
         "http://localhost:9002/api/appointment/update",
