@@ -34,7 +34,7 @@ export default function FindUser() {
             if (err.response && err.response.status === 404) {
                 setData({});
             } else {
-                console.log(err.message);
+                console.error(err.message);
             }
         }
 

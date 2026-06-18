@@ -106,19 +106,26 @@ export default function ReceptionistDD() {
             <div className="container-fluid px-4 py-4">
 
                 {}
-                <div className="rounded-3 p-4 mb-4 text-white position-relative"
-                    style={{
-                        background: "linear-gradient(135deg, rgba(13,110,253,0.85), rgba(10,88,202,0.85))",
-                        backdropFilter: "blur(10px)",
-                        WebkitBackdropFilter: "blur(10px)",
-                        border: "1px solid rgba(255,255,255,0.2)",
-                        boxShadow: "0 8px 30px rgba(0,0,0,0.15)",
-                    }}>
-                    <h4 className="mb-1">👋 Welcome back, {userName}!</h4>
-                    <p className="mb-0" style={{ opacity: 0.9 }}>
-                        Reception Dashboard · MediServe 360
+                <div
+                className="mb-4 p-4 rounded-4 text-white d-flex align-items-center justify-content-between"
+                style={{
+                  background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0f3460 100%)",
+                  minHeight: 100,
+                }}
+              >
+                <div>
+                  <h4 className="fw-bold mb-1">Welcome back, {userName} 👋</h4>
+                  <p className="mb-0 small" style={{ color: "#93c5fd" }}>
+                    Receptionist
+                  </p>
+                  
+                    <p className="mb-0 small" style={{ color: "#cbd5f5" }}>
+                        Manage patient check-ins, appointments, and front desk operations.
                     </p>
+
                 </div>
+                <div style={{ fontSize: "3rem", opacity: 0.3 }}>🏥</div>
+              </div>
 
                 {}
                 {loading ? (

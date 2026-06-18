@@ -40,7 +40,7 @@ export default function Login() {
                 const msg = err.response?.data?.message || "";
 
                 if (msg.toLowerCase().includes("pending")) {
-                    setError("Your account is pending admin approval.");
+                    setError("Your account is pending for admin approval.");
                 } else if (msg.toLowerCase().includes("reject") || msg.toLowerCase().includes("not approved")) {
                     setError("Your account has been rejected by admin.");
                 } else if (msg.toLowerCase().includes("password invalid")) {

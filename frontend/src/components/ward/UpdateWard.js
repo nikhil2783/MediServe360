@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import axios from "axios";
-
+import { toast } from "react-toastify";
 export default function UpdateWard() {
 
     let { wardId } = useParams();
@@ -36,7 +36,7 @@ export default function UpdateWard() {
                 setWardStatus(res.data.ward.wardstatus);
             })
             .catch((err) => {
-                alert(err.message);
+                toast.error(err.message);
             });
     }, []);
 
@@ -57,16 +57,16 @@ export default function UpdateWard() {
         }
     })
     .then((res) => {
-        alert("Ward updated successfully");
+        toast.success("Ward updated successfully");
         navigate("/ward/findAll");
     })
     .catch((error) => {
         if (error.response) {
-            alert("Error " + error.response.status + ": " + (error.response.data?.errorMessage || JSON.stringify(error.response.data)));
+            toast.error("Error " + error.response.status + ": " + (error.response.data?.errorMessage || JSON.stringify(error.response.data)));
         } else if (error.request) {
-            alert("No response from server. Make sure the backend is running on port 9002.");
+            toast.error("No response from server. Make sure the backend is running on port 9002.");
         } else {
-            alert("Error: " + error.message);
+            toast.error("Error: " + error.message);
         }
     });
 }

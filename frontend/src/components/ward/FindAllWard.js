@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import { toast } from "react-toastify";
 export default function FindAllWard() {
 
     let [wardArr, setWardArr] = useState([]);
@@ -17,7 +17,7 @@ export default function FindAllWard() {
                 setWardArr(response.data);
             })
             .catch((error) => {
-                alert(error.message);
+                toast.error(error.message);
             });
     }, []);
 

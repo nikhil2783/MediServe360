@@ -1,6 +1,7 @@
 import { useState ,useEffect} from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router";
+import { toast } from "react-toastify";
 export default function UpdateNotification(){
     const {id}=useParams();
     const navigate=useNavigate();
@@ -31,7 +32,7 @@ export default function UpdateNotification(){
             setStatus(res.data.status);
 
         }catch(err){
-            alert(err.message)
+            toast.error(err.message)
         }
     }
 
@@ -65,10 +66,10 @@ export default function UpdateNotification(){
                         Authorization: "Bearer " + localStorage.getItem("token")
                     }
                 });
-            alert(res.data.message);
+            toast.success(res.data.message);
             navigate("/notification")
         }catch(err){
-            alert(err.message);
+            toast.error(err.message);
         }
     }
     return(

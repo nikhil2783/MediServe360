@@ -1,6 +1,7 @@
 import {useState,useEffect} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 export default function FindAllAuditlog(){
     let [data,setData]=useState([]);
     const navigate=useNavigate();
@@ -16,7 +17,7 @@ export default function FindAllAuditlog(){
                 });
             setData(res.data);
         }catch(err){
-            alert(err.message);
+            toast.error(err.message);
         }
     }
     useEffect(()=>{

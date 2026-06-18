@@ -1,7 +1,7 @@
 import { useParams,useNavigate } from "react-router";
 import axios from 'axios';
 import { useEffect } from "react";
-
+import { toast } from "react-toastify";
 export default function DeleteWard() {
     let { wardId } = useParams();
       let navigate = useNavigate();
@@ -15,16 +15,16 @@ export default function DeleteWard() {
                     }
                 })
             .then((response) => {
-                alert(response.data);
+                toast.success(response.data);
                  navigate("/ward/findAll");
             })
             .catch((error) => {
                 if (error.response) {
-                    alert("Error " + error.response.status + ": " + (error.response.data?.errorMessage || JSON.stringify(error.response.data)));
+                    toast.error("Error " + error.response.status + ": " + (error.response.data?.errorMessage || JSON.stringify(error.response.data)));
                 } else if (error.request) {
-                    alert("No response from server. Make sure the backend is running on port 9002.");
+                    toast.error("No response from server. Make sure the backend is running on port 9002.");
                 } else {
-                    alert("Error: " + error.message);
+                    toast.error("Error: " + error.message);
                 }
             });
     }, [wardId]);

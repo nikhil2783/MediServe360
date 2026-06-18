@@ -28,7 +28,7 @@ export default function AddAuditlog() {
             });
             toast.success("Successfully added");
         } catch (err) {
-            alert(err.message);
+            toast.error(err.message);
         }
     }
 

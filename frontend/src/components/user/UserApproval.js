@@ -22,7 +22,7 @@ export default function UserApproval() {
             }
             setActualData(arr);
         } catch (err) {
-            alert(err.message);
+            toast.error(err.message);
         }
     }
 
@@ -36,7 +36,7 @@ export default function UserApproval() {
             toast.success("User with id " + id + " successfully " + a + "ED");
             userApproval();
         } catch (err) {
-            alert(err.message);
+            toast.error(err.message);
         }
     }
 

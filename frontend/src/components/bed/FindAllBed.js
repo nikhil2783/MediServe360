@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import { toast } from "react-toastify";
 export default function FindAllBeds() {
 
     const [bedArr,     setBedArr]     = useState([]);
@@ -22,7 +22,7 @@ export default function FindAllBeds() {
 
         axios.get("http://localhost:9002/api/beds/getAllBeds", { headers })
             .then((response) => setBedArr(response.data))
-            .catch((error) => alert(error.message));
+            .catch((error) => toast.error(error.message));
     }, []);
 
     return (

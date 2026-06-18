@@ -33,7 +33,7 @@ export default function FindDoctor() {
         `${BASE}/api/doctor/search?name=${encodeURIComponent(val.trim())}`,
         { headers }
       );
-
+      
       setResults(res.data || []);
     } catch (err) {
       if (err.response?.status === 404) {

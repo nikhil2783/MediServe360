@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import { toast } from "react-toastify";
 export default function DisplayCompliance() {
 
   const [reports, setReports] = useState([]);
@@ -18,8 +18,8 @@ export default function DisplayCompliance() {
       setReports(res.data);
     })
     .catch((err) => {
-      console.log("Error:", err.response?.data || err.message);
-      alert(err.response?.data || err.message);
+      console.error("Error:", err.response?.data || err.message);
+      toast.error(err.response?.data || err.message);
     });
 
   }, []);

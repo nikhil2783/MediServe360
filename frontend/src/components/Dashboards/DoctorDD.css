@@ -1,0 +1,268 @@
+.doctor-dd-wrapper {
+    min-height: 100vh;
+    background: #f1f5f9;
+}
+
+.loading-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
+}
+
+.loading-text {
+    color: #1e293b;
+}
+
+.spinner-blue {
+    color: #1d4ed8;
+}
+
+.welcome-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0f3460 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100px;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.banner-role {
+    color: #93c5fd;
+}
+
+.banner-sub {
+    color: #cbd5e1;
+}
+
+.banner-email {
+    color: #94a3b8;
+}
+
+.banner-icon {
+    font-size: 3rem;
+    opacity: 0.3;
+}
+
+.edit-profile-btn {
+    background: #1d4ed8;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-weight: 600;
+}
+
+.edit-profile-btn:hover {
+    background: #1e40af;
+    color: #fff;
+}
+
+.stat-icon-box {
+    width: 52px;
+    height: 52px;
+    font-size: 1.4rem;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+}
+
+.patients-table {
+    border-collapse: separate;
+    border-spacing: 0 6px;
+}
+
+.table-header-row {
+    background: #f8fafc;
+}
+
+.table-th {
+    color: #1e293b;
+    border: none;
+    white-space: nowrap;
+    font-size: 0.82rem;
+}
+
+.table-row {
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.table-row:hover {
+    background: #f8fafc;
+}
+
+.table-name {
+    color: #1e293b;
+}
+
+.status-badge {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.action-btn-vitals {
+    background: #dbeafe;
+    color: #1d4ed8;
+    border-radius: 8px;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.action-btn-vitals:hover {
+    background: #bfdbfe;
+    color: #1e40af;
+}
+
+.action-btn-review {
+    background: #dcfce7;
+    color: #15803d;
+    border-radius: 8px;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.action-btn-review:hover {
+    background: #bbf7d0;
+    color: #166534;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-card {
+    background: #fff;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 82vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.modal-card-review {
+    max-width: 480px;
+    max-height: 90vh;
+}
+
+.modal-title-text {
+    color: #1e293b;
+}
+
+.modal-close-btn {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+}
+
+.modal-close-btn:hover {
+    background: #fecaca;
+    color: #991b1b;
+}
+
+.vitals-record {
+    padding: 12px;
+    border-radius: 10px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.vitals-record-title {
+    color: #1d4ed8;
+}
+
+.vital-item {
+    background: #dbeafe;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.vital-item-label {
+    color: #64748b;
+    font-size: 11px;
+}
+
+.vital-item-value {
+    color: #1e293b;
+}
+
+.vital-unit {
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.review-patient-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px;
+}
+
+.review-patient-name {
+    color: #1e293b;
+}
+
+.review-patient-sub {
+    color: #64748b;
+}
+
+.edit-history-btn {
+    background: #dbeafe;
+    color: #1d4ed8;
+    border: none;
+    border-radius: 6px;
+    font-size: 11px;
+    padding: 2px 10px;
+}
+
+.medical-history-display {
+    background: #dbeafe;
+    color: #1e293b;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 13px;
+}
+
+.btn-complete {
+    background: #15803d;
+    border-radius: 8px;
+    border: none;
+    padding: 0.6rem;
+}
+
+.btn-complete:hover {
+    background: #166534;
+}
+
+.btn-cancel {
+    background: #b91c1c;
+    border-radius: 8px;
+    border: none;
+    padding: 0.6rem;
+}
+
+.btn-cancel:hover {
+    background: #991b1b;
+}

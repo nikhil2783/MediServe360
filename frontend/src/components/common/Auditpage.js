@@ -1,5 +1,6 @@
 import {useState,useEffect} from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export default function Auditpage(){
 
@@ -38,7 +39,7 @@ export default function Auditpage(){
             setData(res.data.content);
             setTotalPages(res.data.totalPages);
         }catch(err){
-            alert(err.message);
+            toast.error(err.message);
         }
     }
     useEffect(()=>{
@@ -59,7 +60,7 @@ export default function Auditpage(){
                         {
                             data.map((m)=>{
                                 return(
-                                    <tr>
+                                    <tr key={m.auditId}>
                                         <td>{m.auditId}</td>
                                         <td>{m.action}</td>
                                         <td>{m.timestamp}</td>

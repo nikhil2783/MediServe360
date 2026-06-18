@@ -56,7 +56,7 @@ export default function FindCompliance() {
             setRecords(reports);
 
         } catch (err) {
-            console.log(err.response?.data);
+            console.error(err.response?.data);
             setError(err.response?.data || err.message);
         }
     };

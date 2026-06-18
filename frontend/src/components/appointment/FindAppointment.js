@@ -35,7 +35,7 @@ export default function FindAppointment() {
       if (err.response && err.response.status === 404) {
         setAppointment({});
       } else {
-        console.log(err.message);
+        console.error(err.message);
         toast.error("Something went wrong");
       }
     }

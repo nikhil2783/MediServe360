@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import TopNavbar from "../common/TopNavbar";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import "./DoctorDD.css";
 
 const BASE = "http://localhost:9002";
 
@@ -20,7 +22,6 @@ export default function DoctorDD() {
     const [activeModal, setActiveModal] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
-
     const [editingHistory, setEditingHistory] = useState(false);
     const [medicalHistory, setMedicalHistory] = useState("");
     const [savingHistory, setSavingHistory] = useState(false);
@@ -110,7 +111,7 @@ export default function DoctorDD() {
             setSavingHistory(false);
         })
         .catch((err) => {
-            alert(err.response?.data?.message || "Failed to update medical history.");
+            toast.error(err.response?.data?.message || "Failed to update medical history.");
             setSavingHistory(false);
         });
     };
@@ -137,214 +138,186 @@ export default function DoctorDD() {
             })
             .catch((err) => {
                 const msg = err.response?.data?.message || "Failed to update status.";
-                alert(msg);
+                toast.error(msg);
             });
     };
 
     const closeModal = () => {
         setActiveModal(null);
-        setEditingHistory(false); 
+        setEditingHistory(false);
         setMedicalHistory("");
     };
 
     const getStatusBadge = (status) => {
-        const styles = {
-            BOOKED:      { background: "#e3f2fb", color: "#1a73a7" },
-            RESCHEDULED: { background: "#fff8e1", color: "#f57c00" },
-            COMPLETED:   { background: "#e8f5e9", color: "#2e7d32" },
-            CANCELLED:   { background: "#fdecea", color: "#c62828" },
+        const map = {
+            BOOKED:      { bg: "#dbeafe", color: "#1d4ed8" },
+            RESCHEDULED: { bg: "#fef9c3", color: "#b45309" },
+            COMPLETED:   { bg: "#dcfce7", color: "#15803d" },
+            CANCELLED:   { bg: "#fee2e2", color: "#b91c1c" },
         };
-        const s = styles[status] || { background: "#f0f0f0", color: "#555" };
+        const s = map[status] || { bg: "#f1f5f9", color: "#475569" };
         return (
-            <span style={{
-                ...s, padding: "3px 10px", borderRadius: "20px",
-                fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.5px"
-            }}>
+            <span className="status-badge" style={{ background: s.bg, color: s.color }}>
                 {status}
             </span>
         );
     };
 
+    const statCards = [
+        { label: "Total Appointments",     value: appointments.length,                                        color: "primary", icon: "📋" },
+        { label: "Booked Appointments",    value: appointments.filter(a => a.status === "BOOKED").length,    color: "info",    icon: "📅" },
+        { label: "Completed Appointments", value: appointments.filter(a => a.status === "COMPLETED").length, color: "success", icon: "✅" },
+        { label: "Cancelled Appointments", value: appointments.filter(a => a.status === "CANCELLED").length, color: "danger",  icon: "❌" },
+    ];
+
     if (loading) return (
         <>
             <TopNavbar />
-            <div className="min-vh-100 d-flex align-items-center justify-content-center"
-                style={{ background: "linear-gradient(135deg, #e8f4f8 0%, #d6eaf8 50%, #eaf4fb 100%)" }}>
+            <div className="loading-screen">
                 <div className="text-center">
-                    <div className="spinner-border" style={{ color: "#1a73a7" }}></div>
-                    <p className="mt-3" style={{ color: "#1a3c5e" }}>Loading dashboard...</p>
+                    <div className="spinner-border spinner-blue"></div>
+                    <p className="mt-3 loading-text">Loading dashboard...</p>
                 </div>
             </div>
         </>
     );
 
     return (
-        <div className="min-vh-100"
-            style={{ background: "linear-gradient(135deg, #e8f4f8 0%, #d6eaf8 50%, #eaf4fb 100%)" }}>
-
+        <div className="doctor-dd-wrapper">
             <TopNavbar />
 
-            <div className="py-4 px-3">
+            <div className="container-fluid px-4 py-4">
 
-                {}
-                <div className="container mb-4">
-                    <div className="card border-0 shadow-sm" style={{ borderRadius: "16px" }}>
-                        <div className="card-body p-4">
-                            <div className="d-flex align-items-center gap-3 flex-wrap">
-                                <div className="d-inline-flex align-items-center justify-content-center rounded-circle"
-                                    style={{ width: 56, height: 56, background: "#1a73a7", flexShrink: 0 }}>
-                                    <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                                        <rect x="12" y="4" width="8" height="24" rx="2" fill="white" />
-                                        <rect x="4" y="12" width="24" height="8" rx="2" fill="white" />
-                                    </svg>
-                                </div>
-                                <div className="flex-grow-1">
-                                    <h5 className="fw-bold mb-0" style={{ color: "#1a3c5e" }}>
-                                        Welcome, Dr. {doctorName}
-                                    </h5>
-                                    <p className="small mb-0" style={{ color: "#5a8fa8" }}>
-                                        {doctorDept && <span className="me-2">🏥 {doctorDept}</span>}
-                                        {doctorSchedule && <span>🕐 {doctorSchedule}</span>}
-                                    </p>
-                                    <p className="small mb-0" style={{ color: "#5a8fa8" }}>{doctorEmail}</p>
-                                </div>
-                                <button
-                                    onClick={() => navigate("/editdoctor")}
-                                    className="btn btn-sm fw-semibold"
-                                    style={{ background: "#1a73a7", color: "#fff", borderRadius: "8px", border: "none", padding: "8px 18px" }}
-                                >
-                                    ✏️ Edit Profile
-                                </button>
-                            </div>
-                        </div>
+                <div className="welcome-banner mb-4">
+                    <div>
+                        <h4 className="fw-bold mb-1">Welcome back, Dr. {doctorName} 👋</h4>
+                        <p className="mb-0 small banner-role">Doctor</p>
+                        <p className="mb-0 small banner-sub">
+                            {doctorDept && <span className="me-2">🏥 {doctorDept}</span>}
+                            {doctorSchedule && <span>🕐 {doctorSchedule}</span>}
+                        </p>
+                        <p className="mb-0 small banner-email">{doctorEmail}</p>
+                    </div>
+                    <div className="d-flex align-items-center gap-3">
+                        <div className="banner-icon">🩺</div>
+                        <button
+                            onClick={() => navigate("/editdoctor")}
+                            className="btn btn-sm edit-profile-btn"
+                        >
+                            ✏️ Edit Profile
+                        </button>
                     </div>
                 </div>
 
-                {}
-                <div className="container mb-4">
-                    <div className="row g-3">
-                        {[
-                            { label: "Total",     value: appointments.length,                                        color: "#1a73a7", bg: "#e3f2fb" },
-                            { label: "Booked",    value: appointments.filter(a => a.status === "BOOKED").length,    color: "#1a73a7", bg: "#e3f2fb" },
-                            { label: "Completed", value: appointments.filter(a => a.status === "COMPLETED").length, color: "#2e7d32", bg: "#e8f5e9" },
-                            { label: "Cancelled", value: appointments.filter(a => a.status === "CANCELLED").length, color: "#c62828", bg: "#fdecea" },
-                        ].map(stat => (
-                            <div className="col-6 col-md-3" key={stat.label}>
-                                <div className="card border-0 shadow-sm text-center p-3"
-                                    style={{ borderRadius: "14px", background: stat.bg }}>
-                                    <div className="fw-bold" style={{ fontSize: "1.8rem", color: stat.color }}>
-                                        {stat.value}
+                {loading ? (
+                    <div className="text-center py-4">
+                        <div className="spinner-border text-primary me-2"></div>
+                        <span className="text-muted">Loading dashboard...</span>
+                    </div>
+                ) : (
+                    <div className="row g-3 mb-4">
+                        {statCards.map((s) => (
+                            <div className="col-12 col-sm-6 col-xl-3" key={s.label}>
+                                <div className={`card border-0 shadow-sm border-start border-4 border-${s.color}`}>
+                                    <div className="card-body d-flex align-items-center gap-3">
+                                        <div className={`bg-${s.color} bg-opacity-10 rounded-3 d-flex align-items-center justify-content-center stat-icon-box`}>
+                                            {s.icon}
+                                        </div>
+                                        <div>
+                                            <p className="text-muted small mb-1 text-uppercase fw-semibold stat-label">
+                                                {s.label}
+                                            </p>
+                                            <h5 className="fw-bold mb-0">{s.value}</h5>
+                                            <span className="small text-success">● Live</span>
+                                        </div>
                                     </div>
-                                    <div className="small" style={{ color: "#5a8fa8" }}>{stat.label} Appointments</div>
                                 </div>
                             </div>
                         ))}
                     </div>
-                </div>
-
-                {}
-                {error && (
-                    <div className="container mb-3">
-                        <div className="alert alert-danger py-2 small">⚠️ {error}</div>
-                    </div>
                 )}
 
-                {}
-                <div className="container">
-                    <div className="card border-0 shadow-sm" style={{ borderRadius: "16px" }}>
-                        <div className="card-body p-4">
+                {error && (
+                    <div className="alert alert-danger py-2 small mb-3">⚠️ {error}</div>
+                )}
 
-                            <div className="d-flex align-items-center gap-2 mb-4">
-                                <hr className="flex-grow-1 m-0" style={{ borderColor: "#c8dfe9" }} />
-                                <span className="small px-2 py-1 rounded-pill fw-semibold"
-                                    style={{ background: "#e3f2fb", color: "#1a73a7", fontSize: "0.7rem", letterSpacing: "0.06em" }}>
-                                    MY PATIENTS
-                                </span>
-                                <hr className="flex-grow-1 m-0" style={{ borderColor: "#c8dfe9" }} />
-                            </div>
-
-                            {appointments.length === 0 ? (
-                                <p className="text-center" style={{ color: "#5a8fa8" }}>No appointments found.</p>
-                            ) : (
-                                <div className="table-responsive">
-                                    <table className="table align-middle" style={{ borderCollapse: "separate", borderSpacing: "0 8px" }}>
-                                        <thead>
-                                            <tr style={{ background: "#e3f2fb" }}>
-                                                {["#", "Patient Name", "Gender", "Date", "Time", "Duration", "Status", "Actions"].map(h => (
-                                                    <th key={h} className="small fw-semibold py-2 px-3"
-                                                        style={{ color: "#1a3c5e", border: "none", whiteSpace: "nowrap" }}>
-                                                        {h}
-                                                    </th>
-                                                ))}
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {appointments.map((appt, idx) => (
-                                                <tr key={appt.id} style={{ background: "#fff" }}>
-                                                    <td className="px-3 py-3 small" style={{ color: "#5a8fa8" }}>{idx + 1}</td>
-                                                    <td className="px-3 py-3 fw-semibold" style={{ color: "#1a3c5e" }}>
-                                                        {appt.patient?.patientName || "-"}
-                                                    </td>
-                                                    <td className="px-3 py-3 small" style={{ color: "#5a8fa8" }}>
-                                                        {appt.patient?.patientGender || "-"}
-                                                    </td>
-                                                    
-                                                    <td className="px-3 py-3 small" style={{ color: "#5a8fa8" }}>{appt.date}</td>
-                                                    <td className="px-3 py-3 small" style={{ color: "#5a8fa8" }}>{appt.time}</td>
-                                                    <td className="px-3 py-3 small" style={{ color: "#5a8fa8" }}>{appt.durationMinutes} min</td>
-                                                    <td className="px-3 py-3">{getStatusBadge(appt.status)}</td>
-                                                    <td className="px-3 py-3">
-                                                        <div className="d-flex gap-2">
-                                                            <button
-                                                                className="btn btn-sm fw-semibold"
-                                                                onClick={() => handleVitalsClick(appt.patient?.patientId)}
-                                                                style={{ background: "#e3f2fb", color: "#1a73a7", borderRadius: "8px", border: "none", fontSize: "12px" }}
-                                                            >
-                                                                🩺 Vitals
-                                                            </button>
-                                                            <button
-                                                                className="btn btn-sm fw-semibold"
-                                                                onClick={() => handleReviewClick(appt)}
-                                                                style={{ background: "#e8f5e9", color: "#2e7d32", borderRadius: "8px", border: "none", fontSize: "12px" }}
-                                                            >
-                                                                📋 Review
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                <div className="card border-0 shadow-sm">
+                    <div className="card-header bg-white border-bottom py-3">
+                        <h6 className="fw-bold mb-0">🧾 My Patients</h6>
+                    </div>
+                    <div className="card-body p-4">
+                        {appointments.length === 0 ? (
+                            <p className="text-center text-muted">No appointments found.</p>
+                        ) : (
+                            <div className="table-responsive">
+                                <table className="table align-middle patients-table">
+                                    <thead>
+                                        <tr className="table-header-row">
+                                            {["#", "Patient Name", "Gender", "Date", "Time", "Duration", "Status", "Actions"].map(h => (
+                                                <th key={h} className="small fw-semibold py-2 px-3 table-th">
+                                                    {h}
+                                                </th>
                                             ))}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            )}
-                        </div>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {appointments.map((appt, idx) => (
+                                            <tr key={appt.id} className="table-row">
+                                                <td className="px-3 py-3 small text-muted">{idx + 1}</td>
+                                                <td className="px-3 py-3 fw-semibold table-name">
+                                                    {appt.patient?.patientName || "-"}
+                                                </td>
+                                                <td className="px-3 py-3 small text-muted">
+                                                    {appt.patient?.patientGender || "-"}
+                                                </td>
+                                                <td className="px-3 py-3 small text-muted">{appt.date}</td>
+                                                <td className="px-3 py-3 small text-muted">{appt.time}</td>
+                                                <td className="px-3 py-3 small text-muted">{appt.durationMinutes} min</td>
+                                                <td className="px-3 py-3">{getStatusBadge(appt.status)}</td>
+                                                <td className="px-3 py-3">
+                                                    <div className="d-flex gap-2">
+                                                        <button
+                                                            className="btn btn-sm action-btn-vitals"
+                                                            onClick={() => handleVitalsClick(appt.patient?.patientId)}
+                                                        >
+                                                            🩺 Vitals
+                                                        </button>
+                                                        <button
+                                                            className="btn btn-sm action-btn-review"
+                                                            onClick={() => handleReviewClick(appt)}
+                                                        >
+                                                            📋 Review
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
 
-            {}
             {activeModal?.type === "vitals" && (
-                <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1050, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <div className="card border-0 shadow-lg" style={{ width: "100%", maxWidth: 500, borderRadius: "16px", maxHeight: "80vh", overflowY: "auto" }}>
+                <div className="modal-overlay">
+                    <div className="modal-card">
                         <div className="card-body p-4">
                             <div className="d-flex justify-content-between align-items-center mb-3">
-                                <h6 className="fw-bold mb-0" style={{ color: "#1a3c5e" }}>🩺 Patient Vitals</h6>
-                                <button onClick={closeModal} className="btn btn-sm"
-                                    style={{ background: "#fdecea", color: "#c62828", borderRadius: "8px", border: "none" }}>
-                                    ✕ Close
-                                </button>
+                                <h6 className="fw-bold mb-0 modal-title-text">🩺 Patient Vitals</h6>
+                                <button onClick={closeModal} className="btn btn-sm modal-close-btn">✕ Close</button>
                             </div>
                             {!vitals[activeModal.patientId] ? (
                                 <div className="text-center py-3">
-                                    <div className="spinner-border" style={{ color: "#1a73a7" }}></div>
+                                    <div className="spinner-border text-primary"></div>
                                 </div>
                             ) : vitals[activeModal.patientId].length === 0 ? (
-                                <p className="text-center small" style={{ color: "#5a8fa8" }}>No vitals recorded for this patient.</p>
+                                <p className="text-center small text-muted">No vitals recorded for this patient.</p>
                             ) : (
                                 vitals[activeModal.patientId].map((v, i) => (
-                                    <div key={v.vitalId} className="p-3 mb-2 rounded"
-                                        style={{ background: "#f7fafc", border: "1px solid #e3f2fb" }}>
-                                        <div className="small fw-semibold mb-2" style={{ color: "#1a73a7" }}>
+                                    <div key={v.vitalId} className="vitals-record mb-2">
+                                        <div className="small fw-semibold mb-2 vitals-record-title">
                                             Record #{i + 1} — {new Date(v.recordedAt).toLocaleString()}
                                         </div>
                                         <div className="row g-2">
@@ -355,11 +328,11 @@ export default function DoctorDD() {
                                                 { label: "SpO2",           value: v.spo2,          unit: "%"    },
                                             ].map(item => (
                                                 <div className="col-6" key={item.label}>
-                                                    <div className="p-2 rounded text-center" style={{ background: "#e3f2fb" }}>
-                                                        <div className="small" style={{ color: "#5a8fa8", fontSize: "11px" }}>{item.label}</div>
-                                                        <div className="fw-bold" style={{ color: "#1a3c5e" }}>
+                                                    <div className="vital-item text-center">
+                                                        <div className="small vital-item-label">{item.label}</div>
+                                                        <div className="fw-bold vital-item-value">
                                                             {item.value ?? "—"}{" "}
-                                                            <span style={{ fontSize: "11px", fontWeight: 400 }}>
+                                                            <span className="vital-unit">
                                                                 {item.value ? item.unit : ""}
                                                             </span>
                                                         </div>
@@ -375,55 +348,37 @@ export default function DoctorDD() {
                 </div>
             )}
 
-            {}
             {activeModal?.type === "review" && (
-                <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.4)", zIndex: 1050, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <div className="card border-0 shadow-lg" style={{ width: "100%", maxWidth: 480, borderRadius: "16px", maxHeight: "90vh", overflowY: "auto" }}>
+                <div className="modal-overlay">
+                    <div className="modal-card modal-card-review">
                         <div className="card-body p-4">
                             <div className="d-flex justify-content-between align-items-center mb-3">
-                                <h6 className="fw-bold mb-0" style={{ color: "#1a3c5e" }}>📋 Review Appointment</h6>
-                                <button onClick={closeModal} className="btn btn-sm"
-                                    style={{ background: "#fdecea", color: "#c62828", borderRadius: "8px", border: "none" }}>
-                                    ✕ Close
-                                </button>
+                                <h6 className="fw-bold mb-0 modal-title-text">📋 Review Appointment</h6>
+                                <button onClick={closeModal} className="btn btn-sm modal-close-btn">✕ Close</button>
                             </div>
 
-                            {}
                             {activeModal.appointment.patient && (
-                                <div className="p-3 rounded mb-3"
-                                    style={{ background: "#f7fafc", border: "1px solid #e3f2fb" }}>
-
-                                    {}
-                                    <div className="fw-semibold mb-1" style={{ color: "#1a3c5e" }}>
+                                <div className="review-patient-box mb-3">
+                                    <div className="fw-semibold review-patient-name">
                                         {activeModal.appointment.patient.patientName}
                                     </div>
-                                    <div className="small" style={{ color: "#5a8fa8" }}>
+                                    <div className="small review-patient-sub">
                                         {activeModal.appointment.patient.patientGender} •{" "}
                                         DOB: {activeModal.appointment.patient.patientDOB}
                                     </div>
-                                    <div className="small mt-1" style={{ color: "#5a8fa8" }}>
+                                    <div className="small mt-1 review-patient-sub">
                                         📞 {activeModal.appointment.patient.patientPhoneNumber}
                                     </div>
 
-                                    {}
                                     <div className="mt-3">
                                         <div className="d-flex align-items-center justify-content-between mb-1">
-                                            <span className="small fw-semibold" style={{ color: "#1a3c5e" }}>
-                                                📄 Medical History
-                                            </span>
+                                            <span className="small fw-semibold review-patient-name">📄 Medical History</span>
                                             {!editingHistory && (
                                                 <button
-                                                    className="btn btn-sm"
+                                                    className="btn btn-sm edit-history-btn"
                                                     onClick={() => {
-                                                        setMedicalHistory(
-                                                            activeModal.appointment.patient.patientMedicalHistory || ""
-                                                        );
+                                                        setMedicalHistory(activeModal.appointment.patient.patientMedicalHistory || "");
                                                         setEditingHistory(true);
-                                                    }}
-                                                    style={{
-                                                        background: "#e3f2fb", color: "#1a73a7",
-                                                        border: "none", borderRadius: "6px",
-                                                        fontSize: "11px", padding: "2px 10px"
                                                     }}
                                                 >
                                                     ✏️ Edit
@@ -461,39 +416,33 @@ export default function DoctorDD() {
                                                 </div>
                                             </>
                                         ) : (
-                                            <div className="small p-2 rounded"
-                                                style={{ background: "#e3f2fb", color: "#1a3c5e" }}>
-                                                {activeModal.appointment.patient.patientMedicalHistory
-                                                    || "No medical history recorded"}
+                                            <div className="medical-history-display">
+                                                {activeModal.appointment.patient.patientMedicalHistory || "No medical history recorded"}
                                             </div>
                                         )}
                                     </div>
                                 </div>
                             )}
 
-                            {}
                             <div className="d-flex align-items-center gap-2 mb-3">
-                                <span className="small fw-semibold" style={{ color: "#1a3c5e" }}>Current Status:</span>
+                                <span className="small fw-semibold review-patient-name">Current Status:</span>
                                 {getStatusBadge(activeModal.appointment.status)}
                             </div>
 
-                            <div className="mb-3 small" style={{ color: "#5a8fa8" }}>
+                            <div className="mb-3 small review-patient-sub">
                                 📅 {activeModal.appointment.date} · ⏰ {activeModal.appointment.time} · ⌛ {activeModal.appointment.durationMinutes} min
                             </div>
 
-                            {}
                             <div className="d-flex gap-2">
                                 <button
-                                    className="btn w-100 fw-semibold text-white"
+                                    className="btn w-100 fw-semibold text-white btn-complete"
                                     onClick={() => updateStatus(activeModal.appointment, "COMPLETED")}
-                                    style={{ background: "#2e7d32", borderRadius: "8px", border: "none", padding: "0.6rem" }}
                                 >
                                     ✅ Completed
                                 </button>
                                 <button
-                                    className="btn w-100 fw-semibold text-white"
+                                    className="btn w-100 fw-semibold text-white btn-cancel"
                                     onClick={() => updateStatus(activeModal.appointment, "CANCELLED")}
-                                    style={{ background: "#c62828", borderRadius: "8px", border: "none", padding: "0.6rem" }}
                                 >
                                     ❌ Cancel
                                 </button>

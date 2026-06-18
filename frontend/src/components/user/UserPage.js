@@ -1,5 +1,6 @@
 import {useState,useEffect} from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export default function UserPage(){
 
@@ -39,7 +40,7 @@ export default function UserPage(){
         setData(res.data.content);
         setTotalPages(res.data.totalPages);
     } catch (err) {
-        alert(err.message);
+        toast.error(err.message);
     }
 }
     useEffect(()=>{

@@ -179,7 +179,7 @@ export default function UpdateAppointment() {
       navigate("/appointment/display");
 
     } catch (error) {
-      console.log("ERROR:", error);
+      console.error("ERROR:", error);
 
       let message =
         error.response?.data?.errorMessage ||

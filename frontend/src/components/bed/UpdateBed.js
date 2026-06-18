@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import axios from "axios";
-
+import { toast } from "react-toastify";
 export default function UpdateBed() {
 
     let { bedId } = useParams();
@@ -30,7 +30,7 @@ export default function UpdateBed() {
                 setWardId(res.data.bed.ward?.wardId || "");
             })
             .catch((err) => {
-                console.error(err);
+                toast.error(err);
             });
     }, []);
 
@@ -49,16 +49,16 @@ export default function UpdateBed() {
                     }
                 })
             .then((res) => {
-                alert("Bed updated successfully");
+                toast.success("Bed updated successfully");
                 navigate("/bed/FindAll");
             })
             .catch((error) => {
                 if (error.response) {
-                    alert("Error " + error.response.status + ": " + (error.response.data?.errorMessage || JSON.stringify(error.response.data)));
+                    toast.error("Error " + error.response.status + ": " + (error.response.data?.errorMessage || JSON.stringify(error.response.data)));
                 } else if (error.request) {
-                    alert("No response from server. Make sure the backend is running on port 9002.");
+                    toast.error("No response from server. Make sure the backend is running on port 9002.");
                 } else {
-                    alert("Error: " + error.message);
+                    toast.error("Error: " + error.message);
                 }
             });
     }

@@ -16,7 +16,7 @@ export default function Userapproval() {
             const pending = res.data.filter((u) => u.status === "PENDING");
             setActualData(pending);
         } catch (err) {
-            alert(err.message);
+            toast.error(err.message);
         }
     }
 

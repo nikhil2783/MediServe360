@@ -97,12 +97,30 @@ export default function FinanceDD() {
             <div className="container-fluid px-4 py-4">
 
                 {}
-                <div className="mb-4">
-                    <h4 className="fw-bold text-dark mb-1">Finance Dashboard</h4>
-                    <p className="text-muted small mb-0">
-                        Welcome, {userName} · Live Data · MediServe 360
-                    </p>
-                </div>
+                <div
+  className="mb-4 p-4 rounded-4 text-white d-flex align-items-center justify-content-between"
+  style={{
+    background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0f3460 100%)",
+    minHeight: 100,
+  }}
+>
+  <div>
+    <h4 className="fw-bold mb-1">
+      Welcome back, {userName} 👋
+    </h4>
+
+    <p className="mb-0 small fw-semibold" style={{ color: "#93c5fd" }}>
+      Finance Officer
+    </p>
+
+    <p className="mb-0 small" style={{ color: "#cbd5f5" }}>
+      Manage billing, payments, and financial records with accuracy and efficiency.
+    </p>
+  </div>
+
+  <div style={{ fontSize: "3rem", opacity: 0.3 }}>🏥</div>
+</div>
+
 
                 {}
                 {loading ? (

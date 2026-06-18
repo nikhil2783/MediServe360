@@ -27,7 +27,7 @@ export default function PatientNotification() {
             if (err.response && err.response.status === 404) {
                 setPatientData([]);
             } else {
-                console.log(err.message);
+                console.error(err.message);
             }
         }
 
